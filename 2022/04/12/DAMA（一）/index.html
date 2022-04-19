@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kurl00.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="DAMA数据管理体系一、数据管理概览数据管理的业务驱动因素：使组织能够从其速降资产中获取价值 目标 理解并支撑企业及其利益相关方的信息需求得到满足  获取、存储、保护数据和确保数据资产的完整性  确保数据和信息的质量  确保利益相关方的数据隐私和保密性  防止数据和信息未经授权或被不当访问、操作及使用  确保数据能有效的服务与企业增值目标   ###数据管理原则  速降是独有属性的资产（数据资产在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DAMA（一）">
+<meta property="og:url" content="http://kurl00.github.io/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="kurl00">
+<meta property="og:description" content="DAMA数据管理体系一、数据管理概览数据管理的业务驱动因素：使组织能够从其速降资产中获取价值 目标 理解并支撑企业及其利益相关方的信息需求得到满足  获取、存储、保护数据和确保数据资产的完整性  确保数据和信息的质量  确保利益相关方的数据隐私和保密性  防止数据和信息未经授权或被不当访问、操作及使用  确保数据能有效的服务与企业增值目标   ###数据管理原则  速降是独有属性的资产（数据资产在">
+<meta property="og:locale">
+<meta property="og:image" content="http://kurl00.github.io/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/2022-04-12-13.31.40-9741504.png">
+<meta property="og:image" content="http://kurl00.github.io/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/2022-04-12-13.33.47-9741631.png">
+<meta property="og:image" content="http://kurl00.github.io/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/2022-04-12-13.34.39-9741683.png">
+<meta property="og:image" content="http://kurl00.github.io/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/2022-04-12-13.35.01-9741706.png">
+<meta property="og:image" content="http://kurl00.github.io/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/2022-04-12-13.35.26-9741731.png">
+<meta property="og:image" content="http://kurl00.github.io/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/2022-04-12-13.38.32-9741916.png">
+<meta property="og:image" content="http://kurl00.github.io/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/%E6%88%AA%E5%B1%8F2022-04-12-14.46.44.png">
+<meta property="og:image" content="http://kurl00.github.io/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/%E6%88%AA%E5%B1%8F2022-04-12-14.48.56.png">
+<meta property="og:image" content="http://kurl00.github.io/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/%E6%88%AA%E5%B1%8F2022-04-1214.55.20.png">
+<meta property="article:published_time" content="2022-04-12T15:08:34.000Z">
+<meta property="article:modified_time" content="2022-04-12T07:29:20.733Z">
+<meta property="article:author" content="kurl00">
+<meta property="article:tag" content="DAMA">
+<meta property="article:tag" content="数据管理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://kurl00.github.io/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/2022-04-12-13.31.40-9741504.png">
+
+<link rel="canonical" href="http://kurl00.github.io/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>DAMA（一） | kurl00</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">kurl00</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">next</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://kurl00.github.io/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kurl00">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kurl00">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DAMA（一）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-04-12 15:08:34 / Modified: 07:29:20" itemprop="dateCreated datePublished" datetime="2022-04-12T15:08:34Z">2022-04-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="DAMA数据管理体系"><a href="#DAMA数据管理体系" class="headerlink" title="DAMA数据管理体系"></a>DAMA数据管理体系</h1><h2 id="一、数据管理概览"><a href="#一、数据管理概览" class="headerlink" title="一、数据管理概览"></a>一、数据管理概览</h2><p>数据管理的业务驱动因素：使组织能够从其速降资产中获取价值</p>
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><ol>
+<li><p>理解并支撑企业及其利益相关方的信息需求得到满足</p>
+</li>
+<li><p>获取、存储、保护数据和确保数据资产的完整性</p>
+</li>
+<li><p>确保数据和信息的质量</p>
+</li>
+<li><p>确保利益相关方的数据隐私和保密性</p>
+</li>
+<li><p>防止数据和信息未经授权或被不当访问、操作及使用</p>
+</li>
+<li><p>确保数据能有效的服务与企业增值目标</p>
+</li>
+</ol>
+<p>###数据管理原则</p>
+<ol>
+<li><p>速降是独有属性的资产（数据资产在使用中不会产生消耗）</p>
+</li>
+<li><p>数据的价值可以用经济术语来表示</p>
+</li>
+<li><p>管理数据意味着对数据的质量管理（确保数据符合应用的要求为首要目标，组织必须了解利益相关方对质量的要求，并根据要求度量数据）</p>
+</li>
+<li><p>管理数据需要元数据（用于管理和如何使用数据的数据以元数据形式定义。源于数据创建、处理和使用相关的一系列流程：架构、建模、管理、治理、数据质量管理、喜开发、it和业务运行以及分析）</p>
+</li>
+<li><p>数据管理需要规划（需要协调工作保持最终结果的一致，从架构和流程的角度进行规划）</p>
+</li>
+<li><p>数据管理须驱动信息技术决策（数据和数据管理与信息技术和信息技术管理紧密结合）</p>
+</li>
+<li><p>数据管理是跨职能工作（单个团队无法管理组织的所有数据，需要技术能力，非技术能力和协作能力）</p>
+</li>
+<li><p>数据管理需要企业级视角（数据管理存在很多专用的应用程序，但必须能够有效的应用与整个企业，数据管理和数据治理交织在一起）</p>
+</li>
+<li><p>数据管理需要多角度思考（数据是流动的， 必须不断发展演进，跟的上数据的创建、应用和变化）</p>
+</li>
+<li><p>数据管理需要全生命周期，不同类型数据有不同的生命周期（需要考虑差异，保持灵活性，满足不同类型数据的生命周期需求）</p>
+</li>
+<li><p>数据管理需要纳入与数据相关的风险（数据还代表着组织的风险，可能丢失、被盗或误用。必须考虑数据的伦理影响）</p>
+</li>
+<li><p>有效的数据管理需要领导层承担责任（为达到目标，不仅需要管理技巧，还需要领导层愿景和使命）</p>
+</li>
+</ol>
+<p>&amp;nbsp</p>
+<p>###数据价值</p>
+<p>数据管理方面，将财务价值与数据建立关联的方法至关重要，组织需要从财务 角度了解资产，以便做出决策。</p>
+<h3 id="数据质量"><a href="#数据质量" class="headerlink" title="数据质量"></a>数据质量</h3><p><strong>确保高质量的数据是数据管理的核心</strong>。</p>
+<h3 id="数据优化计划"><a href="#数据优化计划" class="headerlink" title="数据优化计划"></a>数据优化计划</h3><p>数据规划需要有针对架构、模型和功能设计的战略路径，也取决于业务和信息领导间的战略协作，以及单个项目的执行力</p>
+<h3 id="元数据和数据管理"><a href="#元数据和数据管理" class="headerlink" title="元数据和数据管理"></a>元数据和数据管理</h3><p>元数据描述了一个组织拥有什么数据，代表射门，如何被分类，来自哪里，在组织内如何移动，如何在使用中演进，谁可以使用，以及是否为高质量数据。**<u>元数据管理是全面改进数据管理的起点</u>**</p>
+<p>###数据管理是跨职能工作</p>
+<p>数据生命周期中，不同阶段由不同的团队进行不同的管理。需要系统规划的设计能力，管理硬件和构建软件的技能，利用数据分析问题和解释数据的技能，通过定义和模型达成共识的语言技能，发现客户服务商机和实现目标的战略思维</p>
+<p>###建立企业的视角</p>
+<p>管理数据需要理解一个组织中的机会和数据范围。数据是组织中的“横跨领域”之一。跨不同垂直领域。组织内部，数据都迥然不同。源于组织内的多个来源，不同部门用不同的方式表示相同概念。<strong>管理数据的目标是以其合理的方式组合在一起，以便广大数据消费者使用</strong>。</p>
+<h3 id="数据管理需要多角度思考"><a href="#数据管理需要多角度思考" class="headerlink" title="数据管理需要多角度思考"></a>数据管理需要多角度思考</h3><p>组织使用自己生产的数据，也使用外部获取数据，必须考虑不同国家、行业的法律和合规要求。牢记后续有人使用数据，了解数据潜在用途，减少误用风险。</p>
+<h3 id="数据生命周期"><a href="#数据生命周期" class="headerlink" title="数据生命周期"></a>数据生命周期</h3><p>数据生命周期基于产品的生命周期，有别于系统开发生命周期。包括：创建，获取，移动，转换和存储 并使其得以维护和共享的过程，使用数据的过程，以及处理数据的过程。在整个生命周期中，可以清理，转换，合并，增强或聚合数据。</p>
+<p>数据不仅具有生命周期，还具有血缘（从起点移动到使用点点路径，也称数据链）。了解数据血缘，需要记录数据集的起源，以及在访问和使用它们的系统中的移动和转换。<strong>越了解数据的生命周期和血缘，管理数据的能力越强</strong></p>
+<p>![2022-04-12 13.15.44](2022-04-12 13.15.44-9740553.png)</p>
+<p>数据管理对数据生命周期的重要影响：</p>
+<ol>
+<li>创建和使用时数据生命周期中的关键点</li>
+<li>数据质量管理必须贯穿整个数据生命周期</li>
+<li>元数据管理必须贯穿整个数据生命周期</li>
+<li>数据管理包括确保数据安全，并降低与数据相关的风险</li>
+<li>数据管理工作应聚焦于关键数据</li>
+</ol>
+<h3 id="不同数据类型"><a href="#不同数据类型" class="headerlink" title="不同数据类型"></a>不同数据类型</h3><p>不同类型数据，由各自不同的生命周期管理需求。需要将管理的对象进行分类。</p>
+<h3 id="数据和风险"><a href="#数据和风险" class="headerlink" title="数据和风险"></a>数据和风险</h3><p>数据的风险在于被误解和误用</p>
+<h3 id="数据管理和技术"><a href="#数据管理和技术" class="headerlink" title="数据管理和技术"></a>数据管理和技术</h3><p>成功的数据管理需要对技术做出正确的决策，但管理技术和管理数据不同。组织需要了解技术对数据的影响，防止技术诱惑推动对数据的决策，相反，与业务战略一致的数据应该推动有关技术的决策</p>
+<h3 id="高效的数据管理需要领导力和承诺"><a href="#高效的数据管理需要领导力和承诺" class="headerlink" title="高效的数据管理需要领导力和承诺"></a>高效的数据管理需要领导力和承诺</h3><p>CDO制度，认识到管理数据带来的独特挑战，成功的数据管理必须由业务驱动，而不是IT驱动。CDO不仅领导倡议发起，还必须领导文化变革，使组织能够对其数据采取更具战略性的方法。</p>
+<h3 id="数据管理战略"><a href="#数据管理战略" class="headerlink" title="数据管理战略"></a>数据管理战略</h3><p>数据战略来源于对业务战略的故有数据需求的理解。</p>
+<p>####数据管理战略包括：</p>
+<ol>
+<li>令人信服的数据管理愿景</li>
+<li>数据管理的商业案例总结</li>
+<li>指导原则，价值观和管理观点</li>
+<li>数据管理的使命和长期目标</li>
+<li>数据管理的成功建议措施</li>
+<li>符合SMART原则（具体，可衡量，可操作，现实，有时间限制）的短期（12～24个月）数据管理计划目标</li>
+<li>对数据管理角色和组织的描述，以及责、权的总结</li>
+<li>数据管理程序组件和初始化任务</li>
+<li>具体明确范围的优先工作计划</li>
+<li>包含项目和行动任务的事实路线草案</li>
+</ol>
+<h4 id="数据管理战略可交付成果包括："><a href="#数据管理战略可交付成果包括：" class="headerlink" title="数据管理战略可交付成果包括："></a>数据管理战略可交付成果包括：</h4><ol>
+<li>数据管理章程（总体愿景，业务案例，目标，指导原则，成功衡量标准，关键成功因素，可识别风险，运营模式等）</li>
+<li>数据管理范围声明（规划目的和目标-通常为3年，以及负责实现目标的角色，组织和领导）</li>
+<li>数据管理实施路线图（确定特定计划、项目、任务分配和交付里程碑）</li>
+</ol>
+<p>###数据管理框架</p>
+<h4 id="战略一致性框架"><a href="#战略一致性框架" class="headerlink" title="战略一致性框架"></a>战略一致性框架</h4><p><img src="/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/2022-04-12-13.31.40-9741504.png" alt="2022-04-12 13.31.40"></p>
+<h4 id="阿姆斯特丹信息模型"><a href="#阿姆斯特丹信息模型" class="headerlink" title="阿姆斯特丹信息模型"></a>阿姆斯特丹信息模型</h4><p><img src="/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/2022-04-12-13.33.47-9741631.png" alt="2022-04-12 13.33.47"></p>
+<h4 id="DAMA-DMBOK框架"><a href="#DAMA-DMBOK框架" class="headerlink" title="DAMA- DMBOK框架"></a>DAMA- DMBOK框架</h4><p><img src="/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/2022-04-12-13.34.39-9741683.png" alt="2022-04-12 13.34.39"></p>
+<p><img src="/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/2022-04-12-13.35.01-9741706.png" alt="2022-04-12 13.35.01"></p>
+<p><img src="/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/2022-04-12-13.35.26-9741731.png" alt="2022-04-12 13.35.26"></p>
+<p>####DMBOK金字塔（Aiken）</p>
+<p><img src="/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/2022-04-12-13.38.32-9741916.png" alt="2022-04-12 13.38.32"></p>
+<h4 id="DAMA数据管理框架进化"><a href="#DAMA数据管理框架进化" class="headerlink" title="DAMA数据管理框架进化"></a>DAMA数据管理框架进化</h4><p>依赖关系图：</p>
+<p><img src="/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/%E6%88%AA%E5%B1%8F2022-04-12-14.46.44.png" alt="截屏2022-04-12 14.46.44"></p>
+<p>管理功能框架：</p>
+<p><img src="/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/%E6%88%AA%E5%B1%8F2022-04-12-14.48.56.png" alt="截屏2022-04-12 14.48.56"></p>
+<p>DAMA车轮图演变：</p>
+<p><img src="/2022/04/12/DAMA%EF%BC%88%E4%B8%80%EF%BC%89/%E6%88%AA%E5%B1%8F2022-04-1214.55.20.png" alt="截屏2022-04-12 14.55.20"></p>
+<h3 id="DAMA和DMBOK"><a href="#DAMA和DMBOK" class="headerlink" title="DAMA和DMBOK"></a>DAMA和DMBOK</h3><p>DAMA的成立为了应对数据管理需求实践挑战。DMBOK是面向数据管理专业人员的权威参考书，支持DAMA使命</p>
+<ol>
+<li>为实施企业数据管理实践提供框架，包括指导原则，广泛采用的实践，方法和技术，功能过，角色，可交付成果和度量指标</li>
+<li>为数据管理概念建立通用词汇表，并作为数据管理专业人员最佳实践基础</li>
+<li>作为数据管理专业人士认证参考指南（CDMP）</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DAMA/" rel="tag"># DAMA</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag"># 数据管理</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/04/12/DAMA%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E4%BD%93%E7%B3%BB/" rel="prev" title="DAMA数据管理体系">
+      <i class="fa fa-chevron-left"></i> DAMA数据管理体系
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/04/12/DAMA%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="next" title="DAMA（二）">
+      DAMA（二） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DAMA%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E4%BD%93%E7%B3%BB"><span class="nav-number">1.</span> <span class="nav-text">DAMA数据管理体系</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%A6%82%E8%A7%88"><span class="nav-number">1.1.</span> <span class="nav-text">一、数据管理概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.1.1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%B4%A8%E9%87%8F"><span class="nav-number">1.1.2.</span> <span class="nav-text">数据质量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%BC%98%E5%8C%96%E8%AE%A1%E5%88%92"><span class="nav-number">1.1.3.</span> <span class="nav-text">数据优化计划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E6%95%B0%E6%8D%AE%E5%92%8C%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86"><span class="nav-number">1.1.4.</span> <span class="nav-text">元数据和数据管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E9%9C%80%E8%A6%81%E5%A4%9A%E8%A7%92%E5%BA%A6%E6%80%9D%E8%80%83"><span class="nav-number">1.1.5.</span> <span class="nav-text">数据管理需要多角度思考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">1.1.6.</span> <span class="nav-text">数据生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.7.</span> <span class="nav-text">不同数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%92%8C%E9%A3%8E%E9%99%A9"><span class="nav-number">1.1.8.</span> <span class="nav-text">数据和风险</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E6%8A%80%E6%9C%AF"><span class="nav-number">1.1.9.</span> <span class="nav-text">数据管理和技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%95%88%E7%9A%84%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E9%9C%80%E8%A6%81%E9%A2%86%E5%AF%BC%E5%8A%9B%E5%92%8C%E6%89%BF%E8%AF%BA"><span class="nav-number">1.1.10.</span> <span class="nav-text">高效的数据管理需要领导力和承诺</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%88%98%E7%95%A5"><span class="nav-number">1.1.11.</span> <span class="nav-text">数据管理战略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%88%98%E7%95%A5%E5%8F%AF%E4%BA%A4%E4%BB%98%E6%88%90%E6%9E%9C%E5%8C%85%E6%8B%AC%EF%BC%9A"><span class="nav-number">1.1.11.1.</span> <span class="nav-text">数据管理战略可交付成果包括：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%98%E7%95%A5%E4%B8%80%E8%87%B4%E6%80%A7%E6%A1%86%E6%9E%B6"><span class="nav-number">1.1.11.2.</span> <span class="nav-text">战略一致性框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%BF%E5%A7%86%E6%96%AF%E7%89%B9%E4%B8%B9%E4%BF%A1%E6%81%AF%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.11.3.</span> <span class="nav-text">阿姆斯特丹信息模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DAMA-DMBOK%E6%A1%86%E6%9E%B6"><span class="nav-number">1.1.11.4.</span> <span class="nav-text">DAMA- DMBOK框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DAMA%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6%E8%BF%9B%E5%8C%96"><span class="nav-number">1.1.11.5.</span> <span class="nav-text">DAMA数据管理框架进化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DAMA%E5%92%8CDMBOK"><span class="nav-number">1.1.12.</span> <span class="nav-text">DAMA和DMBOK</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">kurl00</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kurl00</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
