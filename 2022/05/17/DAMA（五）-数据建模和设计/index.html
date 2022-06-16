@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.kurl00.xyz","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="数据建模和设计数据建模是发现、分析和确定数据需求的过程，用一种称为数据模型的精确形式表示和传递这些数据需求。 数据可以采用多种不同的模式来表示。其中最为常见的6种模式分别是：  关系模式， 多维模式、 面向对象模式、 事实模式、 时间序列模式 NoSQL 模式。  业务驱动因素 目标和原则数据建模的目标是确认和记录不同视角对数据需求的理解，从而使应用程序与当前和未来的业务需求更加紧密结合在一起，并">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DAMA（五）-数据建模和设计">
+<meta property="og:url" content="http://www.kurl00.xyz/2022/05/17/DAMA%EF%BC%88%E4%BA%94%EF%BC%89-%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%92%8C%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:site_name" content="kurl00">
+<meta property="og:description" content="数据建模和设计数据建模是发现、分析和确定数据需求的过程，用一种称为数据模型的精确形式表示和传递这些数据需求。 数据可以采用多种不同的模式来表示。其中最为常见的6种模式分别是：  关系模式， 多维模式、 面向对象模式、 事实模式、 时间序列模式 NoSQL 模式。  业务驱动因素 目标和原则数据建模的目标是确认和记录不同视角对数据需求的理解，从而使应用程序与当前和未来的业务需求更加紧密结合在一起，并">
+<meta property="og:locale">
+<meta property="og:image" content="http://www.kurl00.xyz/2022/05/17/DAMA%EF%BC%88%E4%BA%94%EF%BC%89-%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%92%8C%E8%AE%BE%E8%AE%A1/%E6%88%AA%E5%B1%8F2022-05-17-10.56.45.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2022/05/17/DAMA%EF%BC%88%E4%BA%94%EF%BC%89-%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%92%8C%E8%AE%BE%E8%AE%A1/%E6%88%AA%E5%B1%8F2022-05-26-16.17.03.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2022/05/17/DAMA%EF%BC%88%E4%BA%94%EF%BC%89-%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%92%8C%E8%AE%BE%E8%AE%A1/%E6%88%AA%E5%B1%8F2022-06-13-16.07.22.png">
+<meta property="article:published_time" content="2022-05-17T10:18:13.000Z">
+<meta property="article:modified_time" content="2022-06-13T09:56:14.491Z">
+<meta property="article:author" content="kurl">
+<meta property="article:tag" content="DAMA">
+<meta property="article:tag" content="数据管理">
+<meta property="article:tag" content="读书记录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.kurl00.xyz/2022/05/17/DAMA%EF%BC%88%E4%BA%94%EF%BC%89-%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%92%8C%E8%AE%BE%E8%AE%A1/%E6%88%AA%E5%B1%8F2022-05-17-10.56.45.png">
+
+<link rel="canonical" href="http://www.kurl00.xyz/2022/05/17/DAMA%EF%BC%88%E4%BA%94%EF%BC%89-%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%92%8C%E8%AE%BE%E8%AE%A1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>DAMA（五）-数据建模和设计 | kurl00</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="kurl00" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">kurl00</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">next</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.kurl00.xyz/2022/05/17/DAMA%EF%BC%88%E4%BA%94%EF%BC%89-%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%92%8C%E8%AE%BE%E8%AE%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kurl">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kurl00">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DAMA（五）-数据建模和设计
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-05-17 10:18:13" itemprop="dateCreated datePublished" datetime="2022-05-17T10:18:13Z">2022-05-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-13 09:56:14" itemprop="dateModified" datetime="2022-06-13T09:56:14Z">2022-06-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="数据建模和设计"><a href="#数据建模和设计" class="headerlink" title="数据建模和设计"></a>数据建模和设计</h1><p>数据建模是发现、分析和确定数据需求的过程，用一种称为数据模型的精确形式表示和传递这<br>些数据需求。</p>
+<p>数据可以采用多种不同的模式来表示。其中最为常见的6种模式分别是：</p>
+<ol>
+<li>关系模式，</li>
+<li>多维模式、</li>
+<li>面向对象模式、</li>
+<li>事实模式、</li>
+<li>时间序列模式</li>
+<li>NoSQL 模式。</li>
+</ol>
+<h3 id="业务驱动因素"><a href="#业务驱动因素" class="headerlink" title="业务驱动因素"></a>业务驱动因素</h3><p><img src="/2022/05/17/DAMA%EF%BC%88%E4%BA%94%EF%BC%89-%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%92%8C%E8%AE%BE%E8%AE%A1/%E6%88%AA%E5%B1%8F2022-05-17-10.56.45.png" alt="截屏2022-05-17 10.56.45"></p>
+<h3 id="目标和原则"><a href="#目标和原则" class="headerlink" title="目标和原则"></a>目标和原则</h3><p>数据建模的目标是确认和记录不同视角对数据需求的理解，从而使应用程序与当前和未来的业务需求更加紧密结合在一起，并成功的完成广泛的数据应用和管理活动奠定基础。</p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
+<li><p>数据建模和数据模型</p>
+<p>数据模型描述了组织已经理解或未来需要的数</p>
+</li>
+<li><p>建模的数据类型</p>
+<ol>
+<li>类别信息</li>
+<li>资源信息</li>
+<li>业务事件信息</li>
+<li>详细交易信息</li>
+</ol>
+</li>
+<li><p>数据模型组件</p>
+<p>who，what，when，where，why，how，measurement</p>
+<p><img src="/2022/05/17/DAMA%EF%BC%88%E4%BA%94%EF%BC%89-%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%92%8C%E8%AE%BE%E8%AE%A1/%E6%88%AA%E5%B1%8F2022-05-26-16.17.03.png" alt="截屏2022-05-26 16.17.03"></p>
+<ol>
+<li>实体别名</li>
+<li>实体的图形表示</li>
+<li>实体的定义<ol>
+<li>清晰</li>
+<li>准确</li>
+<li>完整</li>
+</ol>
+</li>
+<li>关系<ol>
+<li>关系的别名</li>
+<li>关系的图形表示</li>
+<li>关系的基数</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>数据建模的方法</p>
+<ol>
+<li>关系建模</li>
+<li>维度建模</li>
+</ol>
+</li>
+<li><p>数据模型级别</p>
+<ol>
+<li>概念数据模型</li>
+<li>逻辑数据模型</li>
+<li>物理数据模型</li>
+</ol>
+</li>
+<li><p>规范化</p>
+<ol>
+<li>第一范式。确保每个实体有一个有效主键，而且消除冗余分组，确保属性的原子性。</li>
+<li>第二范式。确保每个实体有最小的主键，每个属性都依赖于完整主键</li>
+<li>第三范式。确保每个实体都没有隐藏的主键，每个属性都不依赖于键值之外的任何属性</li>
+<li>Boyce&#x2F;Codd范式。解决交叉的复合候选键问题。复合意味着不止一个，交叉是指键与键之间隐藏的业务规则</li>
+<li>第四范式。所有三元关系分解为二院关系，直到这些关系不能再分解成更小的部分</li>
+<li>第五范式。实体内部的依赖关系分解成二元关系，所有联结依赖部分主键</li>
+</ol>
+<p><strong>通常要求达到第三范式水平即可，实践中后三项很少出现</strong></p>
+</li>
+<li><p>抽象化</p>
+</li>
+</ol>
+<h2 id="活动"><a href="#活动" class="headerlink" title="活动"></a>活动</h2><h3 id="规划数据建模"><a href="#规划数据建模" class="headerlink" title="规划数据建模"></a>规划数据建模</h3><p>数据建模工作交付成果包括</p>
+<ol>
+<li>图表</li>
+<li>定义</li>
+<li>争议和悬而未决的问题</li>
+<li>血缘关系</li>
+</ol>
+<h3 id="建立数据模型"><a href="#建立数据模型" class="headerlink" title="建立数据模型"></a>建立数据模型</h3><p>1.正向工程</p>
+<p>​    （1）概念数据模型建模</p>
+<p>​        1.选择模型类型，从关系、维度、基于事实或nosql的建模方法中选择一种</p>
+<p>​        2.选择表示方法。一旦选定建模的模式类型，就要考虑采用何种建模表示方法。如：信息工程法(IE)，对象角色建模(ORM)。</p>
+<p>​        3.完成初始概念模型</p>
+<p>​        4.收集组织中最高级的概念。包括时间、地点、用户、商品服务&#x2F;交易</p>
+<p>​        5.收集与这些概念相关的活动。关系可以双向的，也可以涉及多个概念。</p>
+<p>​        6.合并企业属于。一旦获取某些用户观点，需要确保观点与企业术语和定义相一致。</p>
+<p>​        7.获取签署。初始模型完成后，确保对模型进行最佳实践及需求满足程度的评审。</p>
+<p>​    （2）逻辑数据模型建模</p>
+<p>​        1.分析信息需求</p>
+<p>​        2.分析现有文档</p>
+<p>​        3.添加关联实体</p>
+<p>​        4.添加属性</p>
+<p>​        5.指定域</p>
+<p>​        6.指定键</p>
+<p>​    （3）物理数据建模</p>
+<p>​        1.解决逻辑抽象</p>
+<p>​        2.添加属性细节</p>
+<p>​        3.添加参考数据对象</p>
+<p>​        4.指定代理键</p>
+<p>​        5.逆规范化。某些情况下逆规范化或添加冗余可极大提升性能，远超重复存储和复制处理的成本</p>
+<p>​        6.建立索引</p>
+<p>​        7.分区</p>
+<p>​        8.创建视图</p>
+<p>2.逆向工程</p>
+<h3 id="审核数据模型"><a href="#审核数据模型" class="headerlink" title="审核数据模型"></a>审核数据模型</h3><p>通过持续改进实践来控制模型质量</p>
+<h3 id="维护数据模型"><a href="#维护数据模型" class="headerlink" title="维护数据模型"></a>维护数据模型</h3><p>保持数据模型的最新状态。需求或恶业务流程变化时，对数据模型进行更新。</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>通过工具，协助数据建模人员完成工作， 包括数据建模，模型血缘，数据分析工具和元数据资料库等</p>
+<h3 id="数据建模工具"><a href="#数据建模工具" class="headerlink" title="数据建模工具"></a>数据建模工具</h3><h3 id="数据血缘工具"><a href="#数据血缘工具" class="headerlink" title="数据血缘工具"></a>数据血缘工具</h3><p>###数据分析工具</p>
+<h3 id="元数据资料库"><a href="#元数据资料库" class="headerlink" title="元数据资料库"></a>元数据资料库</h3><h3 id="数据模型模式"><a href="#数据模型模式" class="headerlink" title="数据模型模式"></a>数据模型模式</h3><p>是可重复使用的模型结构，可以在多场景下被广泛应用</p>
+<h3 id="行业数据模型"><a href="#行业数据模型" class="headerlink" title="行业数据模型"></a>行业数据模型</h3><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="命名约定的最佳实践"><a href="#命名约定的最佳实践" class="headerlink" title="命名约定的最佳实践"></a>命名约定的最佳实践</h3><p>ISO11179元数据注册是一种表示组织中元数据的国际标准。</p>
+<h3 id="数据库设计中的最佳实践"><a href="#数据库设计中的最佳实践" class="headerlink" title="数据库设计中的最佳实践"></a>数据库设计中的最佳实践</h3><p>牢记PRISM设计原则</p>
+<p>​    1.性能和易用性</p>
+<p>​    2.可重用性</p>
+<p>​    3.完整性</p>
+<p>​    4.安全性</p>
+<p>​    5.可维护性</p>
+<h2 id="数据建模和设计治理"><a href="#数据建模和设计治理" class="headerlink" title="数据建模和设计治理"></a>数据建模和设计治理</h2><h3 id="数据建模和设计质量管理"><a href="#数据建模和设计质量管理" class="headerlink" title="数据建模和设计质量管理"></a>数据建模和设计质量管理</h3><p>1.开发数据模型和设计标准</p>
+<p>​    1）标准数据建模和数据库设计可交付成果的列表和描述</p>
+<p>​    2）适用于所有数据模型对象的标准名称、可接受的缩写和非常用单词的缩写规则列表</p>
+<p>​    3）所有数据模型对象的标准命名格式列表，包括属性和分类词</p>
+<p>​    4）用于创建和维护这些可交付成果的标准方法的列表和说明</p>
+<p>​    5）数据建模和数据库设计角色和职责的列表和描述</p>
+<p>​    6）数据建模和数据库设计中补货到所有元数据属性的列表和描述</p>
+<p>​    7）元数据质量期望和要求</p>
+<p>​    8）如何使用数据建模工具的指南</p>
+<p>​    9）准备和领导设计评审的指南</p>
+<p>​    10）数据模型版本控制指南</p>
+<p>​    11）禁止或需要避免的事项列表</p>
+<p>2.评审数据模型及数据库设计质量</p>
+<p>3.管理数据模型版本和集成</p>
+<p>每个变更应予以记录：</p>
+<p>​    1）为什么项目或情况需要变更</p>
+<p>​    2）变更对象以及如何更改，包括添加、修改或删除等</p>
+<p>​    3）变更批准时间以及将此变更应用于模型等时间</p>
+<p>​    4）谁做出了变更</p>
+<p>​    5）进行变更等位置在哪些模型中</p>
+<h3 id="度量指标"><a href="#度量指标" class="headerlink" title="度量指标"></a>度量指标</h3><p><img src="/2022/05/17/DAMA%EF%BC%88%E4%BA%94%EF%BC%89-%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%92%8C%E8%AE%BE%E8%AE%A1/%E6%88%AA%E5%B1%8F2022-06-13-16.07.22.png" alt="截屏2022-06-13 16.07.22"></p>
+<p>“模型分数”列包含评审员对特定模型满足评审标准对评估，最高分是总分数列中的值</p>
+<p>每个类别的简要描述：</p>
+<p>1.多大程度上反应业务需求？ 要确保数据模型代表需求。</p>
+<p>2.模型完整性？ 需求的完整性和元数据的完整性。需求完整性：意味着已经提出的每个需求都应在模型中得到满足。元数据的完整性，是指模型周围的所有描述性信息也要完整。</p>
+<p>3.模型与模式的匹配程度？确保正在审查模型的具象级别和模式与该类型模型的定义相匹配</p>
+<p>4.模型的结构如何？验证用于构建模型的设计实践，确保最终可以从数据模型构建数据库。</p>
+<p>5.模型的通用性如何？评审模型的扩展性或者抽象程度。</p>
+<p>6.模型遵循命名标准的情况如何？确保数据模型采用正确且一致的命名标准。</p>
+<p>7.模型的可读性如何？确保数据模型易于阅读。</p>
+<p>8.模型的定义如何？确保定义清晰、完整和准确</p>
+<p>9.模型与企业数据架构的一致性如何？确认数据模型中的结构能否在更加广泛和一致的环境中应用，以便在组织中可以用一套统一的术语和模型结构。</p>
+<p>10.与元数据的匹配程度如何？确认存储在模型结构中的数据和实际数据保持一致。</p>
+
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>再接再厉-------------</div>
+    
+</div>
+
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DAMA/" rel="tag"># DAMA</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag"># 数据管理</a>
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/" rel="tag"># 读书记录</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/04/22/DAMA%EF%BC%88%E5%9B%9B%EF%BC%89-%E6%95%B0%E6%8D%AE%E6%9E%B6%E6%9E%84/" rel="prev" title="DAMA（四）-数据架构">
+      <i class="fa fa-chevron-left"></i> DAMA（四）-数据架构
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/06/14/DAMA%EF%BC%88%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%92%8C%E6%93%8D%E4%BD%9C/" rel="next" title="DAMA（六）数据存储和操作">
+      DAMA（六）数据存储和操作 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.</span> <span class="nav-text">数据建模和设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E9%A9%B1%E5%8A%A8%E5%9B%A0%E7%B4%A0"><span class="nav-number">1.0.1.</span> <span class="nav-text">业务驱动因素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E5%92%8C%E5%8E%9F%E5%88%99"><span class="nav-number">1.0.2.</span> <span class="nav-text">目标和原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.0.3.</span> <span class="nav-text">基本概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B4%BB%E5%8A%A8"><span class="nav-number">1.1.</span> <span class="nav-text">活动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E5%88%92%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1"><span class="nav-number">1.1.1.</span> <span class="nav-text">规划数据建模</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.2.</span> <span class="nav-text">建立数据模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A1%E6%A0%B8%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.3.</span> <span class="nav-text">审核数据模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%B4%E6%8A%A4%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.4.</span> <span class="nav-text">维护数据模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.2.</span> <span class="nav-text">工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%B7%A5%E5%85%B7"><span class="nav-number">1.2.1.</span> <span class="nav-text">数据建模工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%A1%80%E7%BC%98%E5%B7%A5%E5%85%B7"><span class="nav-number">1.2.2.</span> <span class="nav-text">数据血缘工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E6%95%B0%E6%8D%AE%E8%B5%84%E6%96%99%E5%BA%93"><span class="nav-number">1.2.3.</span> <span class="nav-text">元数据资料库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.2.4.</span> <span class="nav-text">数据模型模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E4%B8%9A%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.5.</span> <span class="nav-text">行业数据模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E7%BA%A6%E5%AE%9A%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-number">1.3.1.</span> <span class="nav-text">命名约定的最佳实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-number">1.3.2.</span> <span class="nav-text">数据库设计中的最佳实践</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%92%8C%E8%AE%BE%E8%AE%A1%E6%B2%BB%E7%90%86"><span class="nav-number">1.4.</span> <span class="nav-text">数据建模和设计治理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%92%8C%E8%AE%BE%E8%AE%A1%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86"><span class="nav-number">1.4.1.</span> <span class="nav-text">数据建模和设计质量管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%A6%E9%87%8F%E6%8C%87%E6%A0%87"><span class="nav-number">1.4.2.</span> <span class="nav-text">度量指标</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">kurl</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kurl</span>
+</div><div>
+<!--添加网站运行时间-->
+<span>小破站已经在风雨中度过了</span>
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    function createtime() {
+        const startTime = '09/27/2018 00:12:55',
+            start = new Date(startTime)
+        let mill = new Date() - start,
+            seconds = Math.floor(mill / 1000),
+            mins = Math.floor(seconds / 60),
+            hours = Math.floor(mins / 60),
+            days = Math.floor(hours / 24)
+        const time = {
+            seconds: seconds - mins * 60,
+            mins: mins - hours * 60,
+            hours: hours - days * 24,
+        }
+        for (const k in time) {
+            time[k] = `${time[k]}`.padStart(2, '0')
+        }
+        document.getElementById("timeDate").innerHTML = ` ${days} 天`
+        document.getElementById("times").innerHTML = ` ${time.hours} 小时 ${time.mins} 分 ${time.seconds} 秒`
+    }
+    setInterval(createtime, 500)
+</script>
+</div>
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  PV<span id="busuanzi_value_site_pv"></span>，UV<span id="busuanzi_value_site_uv"></span>
+</span>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
