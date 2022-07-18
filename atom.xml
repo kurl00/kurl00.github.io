@@ -6,7 +6,7 @@
   <link href="http://www.kurl00.xyz/atom.xml" rel="self"/>
   
   <link href="http://www.kurl00.xyz/"/>
-  <updated>2022-06-15T08:01:19.894Z</updated>
+  <updated>2022-07-18T09:01:09.339Z</updated>
   <id>http://www.kurl00.xyz/</id>
   
   <author>
@@ -17,15 +17,48 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>DAMA（十）参考数据和主数据</title>
+    <link href="http://www.kurl00.xyz/2022/07/19/DAMA%EF%BC%88%E5%8D%81%EF%BC%89%E5%8F%82%E8%80%83%E6%95%B0%E6%8D%AE%E5%92%8C%E4%B8%BB%E6%95%B0%E6%8D%AE/"/>
+    <id>http://www.kurl00.xyz/2022/07/19/DAMA%EF%BC%88%E5%8D%81%EF%BC%89%E5%8F%82%E8%80%83%E6%95%B0%E6%8D%AE%E5%92%8C%E4%B8%BB%E6%95%B0%E6%8D%AE/</id>
+    <published>2022-07-18T17:00:44.000Z</published>
+    <updated>2022-07-18T09:01:09.339Z</updated>
+    
+    
+    
+    
+    
+    <category term="DAMA" scheme="http://www.kurl00.xyz/tags/DAMA/"/>
+    
+    <category term="数据管理" scheme="http://www.kurl00.xyz/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="读书记录" scheme="http://www.kurl00.xyz/tags/%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>DAMA（九）文件和内容管理</title>
     <link href="http://www.kurl00.xyz/2022/06/16/DAMA%EF%BC%88%E4%B9%9D%EF%BC%89%E6%96%87%E4%BB%B6%E5%92%8C%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86/"/>
     <id>http://www.kurl00.xyz/2022/06/16/DAMA%EF%BC%88%E4%B9%9D%EF%BC%89%E6%96%87%E4%BB%B6%E5%92%8C%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86/</id>
     <published>2022-06-15T16:01:19.000Z</published>
-    <updated>2022-06-15T08:01:19.894Z</updated>
+    <updated>2022-07-18T09:01:06.336Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;文件和内容管理&quot;&gt;&lt;a href=&quot;#文件和内容管理&quot; class=&quot;headerlink&quot; title=&quot;文件和内容管理&quot;&gt;&lt;/a&gt;文件和内容管理&lt;/h1&gt;&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
     
     
     
+    <category term="DAMA" scheme="http://www.kurl00.xyz/tags/DAMA/"/>
+    
+    <category term="数据管理" scheme="http://www.kurl00.xyz/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="读书记录" scheme="http://www.kurl00.xyz/tags/%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -34,7 +67,7 @@
     <link href="http://www.kurl00.xyz/2022/06/15/DAMA%EF%BC%88%E5%85%AB%EF%BC%89%E6%95%B0%E6%8D%AE%E9%9B%86%E6%88%90%E4%B8%8E%E4%BA%92%E6%93%8D%E4%BD%9C/"/>
     <id>http://www.kurl00.xyz/2022/06/15/DAMA%EF%BC%88%E5%85%AB%EF%BC%89%E6%95%B0%E6%8D%AE%E9%9B%86%E6%88%90%E4%B8%8E%E4%BA%92%E6%93%8D%E4%BD%9C/</id>
     <published>2022-06-15T15:35:33.000Z</published>
-    <updated>2022-06-16T02:27:15.564Z</updated>
+    <updated>2022-07-07T02:03:45.143Z</updated>
     
     
       
@@ -169,7 +202,7 @@
     <link href="http://www.kurl00.xyz/2022/04/15/DAMA%EF%BC%88%E4%B8%89%EF%BC%89/"/>
     <id>http://www.kurl00.xyz/2022/04/15/DAMA%EF%BC%88%E4%B8%89%EF%BC%89/</id>
     <published>2022-04-15T15:45:47.000Z</published>
-    <updated>2022-04-22T07:17:58.507Z</updated>
+    <updated>2022-06-16T02:08:28.086Z</updated>
     
     
       
