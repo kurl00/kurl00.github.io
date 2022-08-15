@@ -6,7 +6,7 @@
   <link href="http://www.kurl00.xyz/atom.xml" rel="self"/>
   
   <link href="http://www.kurl00.xyz/"/>
-  <updated>2022-07-18T09:01:09.339Z</updated>
+  <updated>2022-08-15T09:46:26.848Z</updated>
   <id>http://www.kurl00.xyz/</id>
   
   <author>
@@ -17,12 +17,48 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>DAMA（十一）数据仓库和商务智能</title>
+    <link href="http://www.kurl00.xyz/2022/08/16/DAMA%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%92%8C%E5%95%86%E5%8A%A1%E6%99%BA%E8%83%BD/"/>
+    <id>http://www.kurl00.xyz/2022/08/16/DAMA%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%92%8C%E5%95%86%E5%8A%A1%E6%99%BA%E8%83%BD/</id>
+    <published>2022-08-15T17:42:30.000Z</published>
+    <updated>2022-08-15T09:46:26.848Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;数据仓库，该技术赋能组织将不同来源的数据整合到公共的数据模型中去，整合后的数据能为业务运营提供洞察，为企业决策支持和创造组织价值开辟新的可能性。企业数据仓库提供了一种减少数据冗余，提高信息一直想，让企业能够利用数据做出更优决策的方法。&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    
+    <category term="DAMA" scheme="http://www.kurl00.xyz/tags/DAMA/"/>
+    
+    <category term="数据管理" scheme="http://www.kurl00.xyz/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="读书记录" scheme="http://www.kurl00.xyz/tags/%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>DAMA（十）参考数据和主数据</title>
     <link href="http://www.kurl00.xyz/2022/07/19/DAMA%EF%BC%88%E5%8D%81%EF%BC%89%E5%8F%82%E8%80%83%E6%95%B0%E6%8D%AE%E5%92%8C%E4%B8%BB%E6%95%B0%E6%8D%AE/"/>
     <id>http://www.kurl00.xyz/2022/07/19/DAMA%EF%BC%88%E5%8D%81%EF%BC%89%E5%8F%82%E8%80%83%E6%95%B0%E6%8D%AE%E5%92%8C%E4%B8%BB%E6%95%B0%E6%8D%AE/</id>
     <published>2022-07-18T17:00:44.000Z</published>
-    <updated>2022-07-18T09:01:09.339Z</updated>
+    <updated>2022-08-15T09:42:55.801Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;参考数据和主数据&quot;&gt;&lt;a href=&quot;#参考数据和主数据&quot; class=&quot;headerlink&quot; title=&quot;参考数据和主数据&quot;&gt;&lt;/a&gt;参考数据和主数据&lt;/h1&gt;&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
     
     
