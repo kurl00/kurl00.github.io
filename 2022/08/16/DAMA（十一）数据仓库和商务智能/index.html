@@ -20,16 +20,19 @@
     var CONFIG = {"hostname":"www.kurl00.xyz","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="数据仓库，该技术赋能组织将不同来源的数据整合到公共的数据模型中去，整合后的数据能为业务运营提供洞察，为企业决策支持和创造组织价值开辟新的可能性。企业数据仓库提供了一种减少数据冗余，提高信息一直想，让企业能够利用数据做出更优决策的方法。">
+  <meta name="description" content="数据仓库，该技术赋能组织将不同来源的数据整合到公共的数据模型中去，整合后的数据能为业务运营提供洞察，为企业决策支持和创造组织价值开辟新的可能性。企业数据仓库提供了一种减少数据冗余，提高信息一直想，让企业能够利用数据做出更优决策的方法。  业务驱动因素数仓建设的驱动力，主要是运营支持职能、合规需求和商务智能活动。越来越多的数据以越来越快的速度被使用，商业智能从回顾性评价发展到预测分析领域。 目标和原">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DAMA（十一）数据仓库和商务智能">
 <meta property="og:url" content="http://www.kurl00.xyz/2022/08/16/DAMA%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%92%8C%E5%95%86%E5%8A%A1%E6%99%BA%E8%83%BD/index.html">
 <meta property="og:site_name" content="kurl00">
-<meta property="og:description" content="数据仓库，该技术赋能组织将不同来源的数据整合到公共的数据模型中去，整合后的数据能为业务运营提供洞察，为企业决策支持和创造组织价值开辟新的可能性。企业数据仓库提供了一种减少数据冗余，提高信息一直想，让企业能够利用数据做出更优决策的方法。">
+<meta property="og:description" content="数据仓库，该技术赋能组织将不同来源的数据整合到公共的数据模型中去，整合后的数据能为业务运营提供洞察，为企业决策支持和创造组织价值开辟新的可能性。企业数据仓库提供了一种减少数据冗余，提高信息一直想，让企业能够利用数据做出更优决策的方法。  业务驱动因素数仓建设的驱动力，主要是运营支持职能、合规需求和商务智能活动。越来越多的数据以越来越快的速度被使用，商业智能从回顾性评价发展到预测分析领域。 目标和原">
 <meta property="og:locale">
 <meta property="og:image" content="http://www.kurl00.xyz/2022/08/16/DAMA%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%92%8C%E5%95%86%E5%8A%A1%E6%99%BA%E8%83%BD/%E6%88%AA%E5%B1%8F2022-08-15-17.45.30.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2022/08/16/DAMA%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%92%8C%E5%95%86%E5%8A%A1%E6%99%BA%E8%83%BD/%E6%88%AA%E5%B1%8F2022-08-16-17.23.05.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2022/08/16/DAMA%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%92%8C%E5%95%86%E5%8A%A1%E6%99%BA%E8%83%BD/%E6%88%AA%E5%B1%8F2022-08-16-17.39.28.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2022/08/16/DAMA%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%92%8C%E5%95%86%E5%8A%A1%E6%99%BA%E8%83%BD/%E6%88%AA%E5%B1%8F2022-08-16-18.02.28.png">
 <meta property="article:published_time" content="2022-08-15T17:42:30.000Z">
-<meta property="article:modified_time" content="2022-08-15T09:46:26.848Z">
+<meta property="article:modified_time" content="2022-08-17T07:51:26.971Z">
 <meta property="article:author" content="kurl">
 <meta property="article:tag" content="DAMA">
 <meta property="article:tag" content="数据管理">
@@ -189,10 +192,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-08-15 17:42:30 / Modified: 09:46:26" itemprop="dateCreated datePublished" datetime="2022-08-15T17:42:30Z">2022-08-15</time>
+              <time title="Created: 2022-08-15 17:42:30" itemprop="dateCreated datePublished" datetime="2022-08-15T17:42:30Z">2022-08-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-08-17 07:51:26" itemprop="dateModified" datetime="2022-08-17T07:51:26Z">2022-08-17</time>
+              </span>
 
           
 
@@ -207,7 +216,57 @@
       
         <p>数据仓库，该技术赋能组织将不同来源的数据整合到公共的数据模型中去，整合后的数据能为业务运营提供洞察，为企业决策支持和创造组织价值开辟新的可能性。企业数据仓库提供了一种减少数据冗余，提高信息一直想，让企业能够利用数据做出更优决策的方法。</p>
 <p><img src="/2022/08/16/DAMA%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%92%8C%E5%95%86%E5%8A%A1%E6%99%BA%E8%83%BD/%E6%88%AA%E5%B1%8F2022-08-15-17.45.30.png" alt="截屏2022-08-15 17.45.30"></p>
-
+<h3 id="业务驱动因素"><a href="#业务驱动因素" class="headerlink" title="业务驱动因素"></a>业务驱动因素</h3><p>数仓建设的驱动力，主要是运营支持职能、合规需求和商务智能活动。越来越多的数据以越来越快的速度被使用，商业智能从回顾性评价发展到预测分析领域。</p>
+<h3 id="目标和原则"><a href="#目标和原则" class="headerlink" title="目标和原则"></a>目标和原则</h3><p>目标：</p>
+<ol>
+<li>支持商业智能活动</li>
+<li>赋能商业分析和高效决策</li>
+<li>基于数据洞察寻找创新方法</li>
+</ol>
+<p>原则：</p>
+<ol>
+<li>聚焦业务目标。确保数仓用于组织最优先级的业务并解决业务问题</li>
+<li>以始为终。让业务优先级和最终交付的数据范围驱动数仓内容的创建</li>
+<li>全局性思考和设计，局部性的行动和建设。让最终的愿景指导体系架构，通过集中项目快速迭代构建增量交付，从而实现更直接的投资回报</li>
+<li>总结并持续优化，不是一开始就这样做。以原始数据为基础，通过汇总和聚合来满足需求并确保性能，但不替换细节数据</li>
+<li>提升透明度和自助服务。上下文信息越丰富，数据消费者越能从数据中获得更多数据价值。向利益相关方公开集成的数据及流程信息。</li>
+<li>与数仓一起建立元数据。数仓成功的关键是能够准确解释数据。能回答基本问题，如“这个数字为什么是X”“这个是怎么计算出来的”“数据从哪里来的”。元数据的获取应该作为软件开发生命周期的一部分，元数据的管理也应该作为数仓持续运营的一部分。</li>
+<li>协同。与其他数据活动协作，尤其是数据治理、数据质量和元数据管理活动</li>
+<li>不要千篇一律。为每种数据消费者提供正确的工具和产品</li>
+</ol>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>1.商业智能：第一层，指的是一种理解组织诉求和寻找机会的数据分析活动。数据分析的结果是用来提高组织决策的成功率。另一层，指的是支持这类数据分析活动的技术合集。决策支持工具，商业智能工具的不断进化，促成数据查询，数据挖掘，统计分析，报表分析，场景建模，数据可视化及仪表盘等一系列应用，被用于从预算到高级分析到方方面面。</p>
+<p>2.数据仓库：两个组成部分，一个集成的决策支持数据库和与之相关的用于收集、清理、转换和存储来自各种操作和外部数据源数据的软件程序。还包括相依赖的数据集市，是数仓中数据子集的副本。广义上说，数仓包括为任何支持商业智能目标的实现提供数据的数据存储或提取操作。</p>
+<p>3.数仓建设。指数仓中数据的抽取，清洗，转换，控制，加载等操作过程。数仓建设流程的重点，是通过强制业务规则，维护适当的业务数据关系，在运营的数据上视线一个集成的、历史的业务环境。还包括与元数据资料库交互的流程。</p>
+<p>4.数仓建设方法。</p>
+<p>“面向主题的，整合的，随时间变化的，相对稳定的支持管理决策的数据集合”，用规范化的关系模型来存储和管理数据</p>
+<p>“为查询和分析定制的交易数据的副本”，多维模型</p>
+<p>核心理念：</p>
+<ol>
+<li>数仓存储的数据来自其他系统</li>
+<li>存储行为包括以提升数据价值的方式整合数据</li>
+<li>数仓便于数据被访问和分析使用</li>
+<li>组织建设数仓，因为需要让授权的利益相关方访问到可靠的、集成的数据</li>
+<li>数仓数据建设有很多目的，涵盖工作流支持、运营管理和预测分析</li>
+</ol>
+<p>5.企业信息工厂</p>
+<p><img src="/2022/08/16/DAMA%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%92%8C%E5%95%86%E5%8A%A1%E6%99%BA%E8%83%BD/%E6%88%AA%E5%B1%8F2022-08-16-17.23.05.png" alt="截屏2022-08-16 17.23.05"></p>
+<p>6.多维数仓</p>
+<p><img src="/2022/08/16/DAMA%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%92%8C%E5%95%86%E5%8A%A1%E6%99%BA%E8%83%BD/%E6%88%AA%E5%B1%8F2022-08-16-17.39.28.png" alt="截屏2022-08-16 17.39.28"></p>
+<p>7.数仓架构组件</p>
+<p><img src="/2022/08/16/DAMA%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%92%8C%E5%95%86%E5%8A%A1%E6%99%BA%E8%83%BD/%E6%88%AA%E5%B1%8F2022-08-16-18.02.28.png" alt="截屏2022-08-16 18.02.28"></p>
+<p>8.加载处理的方式</p>
+<h2 id="活动"><a href="#活动" class="headerlink" title="活动"></a>活动</h2><h3 id="理解需求"><a href="#理解需求" class="headerlink" title="理解需求"></a>理解需求</h3><p>数仓事把数据汇集在一起，再以各种不同的方式使用这些数据，使用方式随着时间推移，用户分析和探索数据需求的发展而发展。</p>
+<p>首先考虑业务目标和业务战略，确定业务领域并框定范围</p>
+<p>然后确定并对相应的业务人员进行访谈，了解想做什么和这么做的原因，记录当下关心的具体问题和想要咨询的数据，以及如何区分和分类重要信息。界定并记录关键的性能指标和计算口径</p>
+<h3 id="定义和维护数仓-x2F-商业智能架构"><a href="#定义和维护数仓-x2F-商业智能架构" class="headerlink" title="定义和维护数仓&#x2F;商业智能架构"></a>定义和维护数仓&#x2F;商业智能架构</h3><p>1.确定数仓&#x2F;商业智能技术架构</p>
+<p>2.确定数仓&#x2F;商业智能管理流程</p>
+<h3 id="开发数仓和数集"><a href="#开发数仓和数集" class="headerlink" title="开发数仓和数集"></a>开发数仓和数集</h3><p>1.将源映射到目标</p>
+<p>2.修正和转换数据</p>
+<h3 id="加载数仓"><a href="#加载数仓" class="headerlink" title="加载数仓"></a>加载数仓</h3><h3 id="实施商业智能产品组合"><a href="#实施商业智能产品组合" class="headerlink" title="实施商业智能产品组合"></a>实施商业智能产品组合</h3><h3 id="维护数据产品"><a href="#维护数据产品" class="headerlink" title="维护数据产品"></a>维护数据产品</h3><p>1.发布管理</p>
+<p>2.管理数据产品开发生命周期</p>
+<p>3.监控和调优加载过程</p>
+<p>4.监控和调优商业智能活动和性能</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><h3 id="元数据存储库"><a href="#元数据存储库" class="headerlink" title="元数据存储库"></a>元数据存储库</h3><h3 id="数据集成工具"><a href="#数据集成工具" class="headerlink" title="数据集成工具"></a>数据集成工具</h3><h3 id="商业智能工具类型"><a href="#商业智能工具类型" class="headerlink" title="商业智能工具类型"></a>商业智能工具类型</h3><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="驱动需求的原型"><a href="#驱动需求的原型" class="headerlink" title="驱动需求的原型"></a>驱动需求的原型</h3><h3 id="自助式商业智能"><a href="#自助式商业智能" class="headerlink" title="自助式商业智能"></a>自助式商业智能</h3><h3 id="可查询的审计数据"><a href="#可查询的审计数据" class="headerlink" title="可查询的审计数据"></a>可查询的审计数据</h3><h2 id="实施指南"><a href="#实施指南" class="headerlink" title="实施指南"></a>实施指南</h2><h3 id="就绪评估-x2F-风险评估"><a href="#就绪评估-x2F-风险评估" class="headerlink" title="就绪评估&#x2F;风险评估"></a>就绪评估&#x2F;风险评估</h3><h3 id="版本路线图"><a href="#版本路线图" class="headerlink" title="版本路线图"></a>版本路线图</h3><h3 id="配置管理"><a href="#配置管理" class="headerlink" title="配置管理"></a>配置管理</h3><h3 id="组织和文化变革"><a href="#组织和文化变革" class="headerlink" title="组织和文化变革"></a>组织和文化变革</h3><h2 id="数仓-x2F-商业智能治理"><a href="#数仓-x2F-商业智能治理" class="headerlink" title="数仓&#x2F;商业智能治理"></a>数仓&#x2F;商业智能治理</h2><h3 id="业务接受度"><a href="#业务接受度" class="headerlink" title="业务接受度"></a>业务接受度</h3><h3 id="客户-x2F-用户满意度"><a href="#客户-x2F-用户满意度" class="headerlink" title="客户&#x2F;用户满意度"></a>客户&#x2F;用户满意度</h3><h3 id="服务水平协议"><a href="#服务水平协议" class="headerlink" title="服务水平协议"></a>服务水平协议</h3><h3 id="报表策略"><a href="#报表策略" class="headerlink" title="报表策略"></a>报表策略</h3><h3 id="度量指标"><a href="#度量指标" class="headerlink" title="度量指标"></a>度量指标</h3>
     </div>
 
     
@@ -254,7 +313,10 @@
     <a href="/2022/07/19/DAMA%EF%BC%88%E5%8D%81%EF%BC%89%E5%8F%82%E8%80%83%E6%95%B0%E6%8D%AE%E5%92%8C%E4%B8%BB%E6%95%B0%E6%8D%AE/" rel="prev" title="DAMA（十）参考数据和主数据">
       <i class="fa fa-chevron-left"></i> DAMA（十）参考数据和主数据
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/08/17/DAMA%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="next" title="DAMA（十二）元数据管理">
+      DAMA（十二）元数据管理 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -313,6 +375,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E9%A9%B1%E5%8A%A8%E5%9B%A0%E7%B4%A0"><span class="nav-number">1.</span> <span class="nav-text">业务驱动因素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E5%92%8C%E5%8E%9F%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">目标和原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">3.</span> <span class="nav-text">基本概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B4%BB%E5%8A%A8"><span class="nav-number"></span> <span class="nav-text">活动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E9%9C%80%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">理解需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%92%8C%E7%BB%B4%E6%8A%A4%E6%95%B0%E4%BB%93-x2F-%E5%95%86%E4%B8%9A%E6%99%BA%E8%83%BD%E6%9E%B6%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">定义和维护数仓&#x2F;商业智能架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E6%95%B0%E4%BB%93%E5%92%8C%E6%95%B0%E9%9B%86"><span class="nav-number">3.</span> <span class="nav-text">开发数仓和数集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD%E6%95%B0%E4%BB%93"><span class="nav-number">4.</span> <span class="nav-text">加载数仓</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E6%96%BD%E5%95%86%E4%B8%9A%E6%99%BA%E8%83%BD%E4%BA%A7%E5%93%81%E7%BB%84%E5%90%88"><span class="nav-number">5.</span> <span class="nav-text">实施商业智能产品组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%B4%E6%8A%A4%E6%95%B0%E6%8D%AE%E4%BA%A7%E5%93%81"><span class="nav-number">6.</span> <span class="nav-text">维护数据产品</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number"></span> <span class="nav-text">工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">元数据存储库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E6%88%90%E5%B7%A5%E5%85%B7"><span class="nav-number">2.</span> <span class="nav-text">数据集成工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%95%86%E4%B8%9A%E6%99%BA%E8%83%BD%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">商业智能工具类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number"></span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A9%B1%E5%8A%A8%E9%9C%80%E6%B1%82%E7%9A%84%E5%8E%9F%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">驱动需求的原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A9%E5%BC%8F%E5%95%86%E4%B8%9A%E6%99%BA%E8%83%BD"><span class="nav-number">2.</span> <span class="nav-text">自助式商业智能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E6%9F%A5%E8%AF%A2%E7%9A%84%E5%AE%A1%E8%AE%A1%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">可查询的审计数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%96%BD%E6%8C%87%E5%8D%97"><span class="nav-number"></span> <span class="nav-text">实施指南</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%B1%E7%BB%AA%E8%AF%84%E4%BC%B0-x2F-%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0"><span class="nav-number">1.</span> <span class="nav-text">就绪评估&#x2F;风险评估</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E8%B7%AF%E7%BA%BF%E5%9B%BE"><span class="nav-number">2.</span> <span class="nav-text">版本路线图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">配置管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E7%BB%87%E5%92%8C%E6%96%87%E5%8C%96%E5%8F%98%E9%9D%A9"><span class="nav-number">4.</span> <span class="nav-text">组织和文化变革</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E4%BB%93-x2F-%E5%95%86%E4%B8%9A%E6%99%BA%E8%83%BD%E6%B2%BB%E7%90%86"><span class="nav-number"></span> <span class="nav-text">数仓&#x2F;商业智能治理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E6%8E%A5%E5%8F%97%E5%BA%A6"><span class="nav-number">1.</span> <span class="nav-text">业务接受度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7-x2F-%E7%94%A8%E6%88%B7%E6%BB%A1%E6%84%8F%E5%BA%A6"><span class="nav-number">2.</span> <span class="nav-text">客户&#x2F;用户满意度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E6%B0%B4%E5%B9%B3%E5%8D%8F%E8%AE%AE"><span class="nav-number">3.</span> <span class="nav-text">服务水平协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%A5%E8%A1%A8%E7%AD%96%E7%95%A5"><span class="nav-number">4.</span> <span class="nav-text">报表策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%A6%E9%87%8F%E6%8C%87%E6%A0%87"><span class="nav-number">5.</span> <span class="nav-text">度量指标</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -326,7 +389,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

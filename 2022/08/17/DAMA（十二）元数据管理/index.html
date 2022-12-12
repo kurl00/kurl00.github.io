@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.kurl00.xyz","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="业务驱动因素可靠且良好的元数据有助于： 1）通过提供上下文语境和执行数据质量检查提高数据可信度 2）通过扩展用途增加战略信息的价值 3）通过识别冗余数据和流程提高运营效率 4）纺织使用过时或不正确的数据 5）减少数据的研究时间 6）改善数据使用者和IT人员之间的沟通 7）创建准确的影响分析，从而降低项目失败风险 8）通过缩短系统开发生命周期时间缩短产品上线时间 9）通过全面记录数据背景、历史和来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DAMA（十二）元数据管理">
+<meta property="og:url" content="http://www.kurl00.xyz/2022/08/17/DAMA%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:site_name" content="kurl00">
+<meta property="og:description" content="业务驱动因素可靠且良好的元数据有助于： 1）通过提供上下文语境和执行数据质量检查提高数据可信度 2）通过扩展用途增加战略信息的价值 3）通过识别冗余数据和流程提高运营效率 4）纺织使用过时或不正确的数据 5）减少数据的研究时间 6）改善数据使用者和IT人员之间的沟通 7）创建准确的影响分析，从而降低项目失败风险 8）通过缩短系统开发生命周期时间缩短产品上线时间 9）通过全面记录数据背景、历史和来">
+<meta property="og:locale">
+<meta property="og:image" content="http://www.kurl00.xyz/2022/08/17/DAMA%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2022-08-17-17.24.24.png">
+<meta property="og:image" content="http://www.kurl00.xyz/%E6%88%AA%E5%B1%8F2022-11-14-10.54.23.png">
+<meta property="og:image" content="http://www.kurl00.xyz/%E6%88%AA%E5%B1%8F2022-11-14-11.40.05.png">
+<meta property="og:image" content="http://www.kurl00.xyz/%E6%88%AA%E5%B1%8F2022-11-14-11.40.34.png">
+<meta property="og:image" content="http://www.kurl00.xyz/%E6%88%AA%E5%B1%8F2022-11-14-11.41.20.png">
+<meta property="og:image" content="http://www.kurl00.xyz/%E6%88%AA%E5%B1%8F2022-11-14-15.57.01.png">
+<meta property="og:image" content="http://www.kurl00.xyz/DAMA%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2022-12-12-11.01.48.png">
+<meta property="og:image" content="http://www.kurl00.xyz/DAMA%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2022-12-12-11.02.22.png">
+<meta property="article:published_time" content="2022-08-17T15:49:05.000Z">
+<meta property="article:modified_time" content="2022-12-12T04:00:05.982Z">
+<meta property="article:author" content="kurl">
+<meta property="article:tag" content="DAMA">
+<meta property="article:tag" content="数据管理">
+<meta property="article:tag" content="读书记录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.kurl00.xyz/2022/08/17/DAMA%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2022-08-17-17.24.24.png">
+
+<link rel="canonical" href="http://www.kurl00.xyz/2022/08/17/DAMA%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>DAMA（十二）元数据管理 | kurl00</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="kurl00" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">kurl00</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">next</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.kurl00.xyz/2022/08/17/DAMA%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kurl">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kurl00">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DAMA（十二）元数据管理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-08-17 15:49:05" itemprop="dateCreated datePublished" datetime="2022-08-17T15:49:05Z">2022-08-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-12 04:00:05" itemprop="dateModified" datetime="2022-12-12T04:00:05Z">2022-12-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="/2022/08/17/DAMA%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2022-08-17-17.24.24.png" alt="截屏2022-08-17 17.24.24"></p>
+<h3 id="业务驱动因素"><a href="#业务驱动因素" class="headerlink" title="业务驱动因素"></a>业务驱动因素</h3><p>可靠且良好的元数据有助于：</p>
+<p>1）通过提供上下文语境和执行数据质量检查提高数据可信度</p>
+<p>2）通过扩展用途增加战略信息的价值</p>
+<p>3）通过识别冗余数据和流程提高运营效率</p>
+<p>4）纺织使用过时或不正确的数据</p>
+<p>5）减少数据的研究时间</p>
+<p>6）改善数据使用者和IT人员之间的沟通</p>
+<p>7）创建准确的影响分析，从而降低项目失败风险</p>
+<p>8）通过缩短系统开发生命周期时间缩短产品上线时间</p>
+<p>9）通过全面记录数据背景、历史和来源，降低培训成本和员工流动影响</p>
+<p>10）满足监管合规</p>
+<p>元数据管理不善容易导致以下问题：</p>
+<p>1）冗余的数据和数据管理流程</p>
+<p>2）重复和冗余的字典、存储库和其他元数据存储</p>
+<p>3）不一致的数据元素定义与数据滥用的相关风险</p>
+<p>4）元数据的不同版本相互矛盾且有冲突，降低数据使用者信心</p>
+<p>5）怀疑元数据和数据可靠性</p>
+<h3 id="目标与原则"><a href="#目标与原则" class="headerlink" title="目标与原则"></a>目标与原则</h3><p>目标包括：</p>
+<ol>
+<li>记录和管理与数据相关的业务术语和知识体系，确保人们理解和使用数据的内容一致性</li>
+<li>收集和整理来自不同来源的元数据，确保人们了解来自组织不同部门的数据之间的相似与差异</li>
+<li>确保元数据的质量、一致性、及时性和安全</li>
+<li>提供标准途径，使元数据使用者可以访问元数据</li>
+<li>推广或强制使用技术元数据标准，以实现数据交换</li>
+</ol>
+<p>实施元数据解决方案应遵循以下指导原则：</p>
+<ol>
+<li>组织承诺。确保组织管理承诺，将元数据管理作为整体战略一部分，激昂数据作为企业资产进行管理</li>
+<li>战略。制定元数据战略，考虑创建、维护、集成和访问元数据。元数据战略必须与业务优先级保持一致</li>
+<li>企业视角。从企业视角确保未来可扩展性，通过迭代和增量交付实现，以带来价值</li>
+<li>潜移默化。宣导元数据必要性和每种元数据用途；潜移默化将其价值鼓励业务使用元数据，同时为业务提供知识辅助</li>
+<li>访问。确保员工了解如何访问和使用元数据</li>
+<li>质量。元数据通常是通过现有流程生成，所以流程所有者对元数据的质量负责。</li>
+<li>审计。制定、实施和审核元数据标准，简化元数据的集成和使用</li>
+<li>改进。创建反馈机制，便于使用者将错误的、过时的元数据反馈给元数据管理团队。</li>
+</ol>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>1.元数据与数据</p>
+<p>元数据也是数据，用数据管理的方式进行管理。</p>
+<p>元数据和非元数据划分边界：概念上看，与数据代表的抽象级别有关。 如：美国安全局对美国人使用电话的监控情况时，电话号码和童话时间通常被称为“元数据”，意味着“真实”数据只包括电话交谈的内容，常识时电话号码和通话时间也只是普通数据。</p>
+<p>为了管理元数据，组织不应该担心理论上的区别，应该定义元数据需求，重点关注元数据能用来做什么（创建新数据、了解现有数据、实现数据间流转、访问数据、共享数据）和满足这些需求的源数据。</p>
+<p>2.元数据的类型</p>
+<p>通常分为三类：业务元数据，技术元数据和操作元数据。</p>
+<p>3.ISO&#x2F;IEEC 11179元数据注册标准</p>
+<p><img src="/%E6%88%AA%E5%B1%8F2022-11-14-10.54.23.png" alt="截屏2022-11-14 10.54.23"></p>
+<p>4.非结构化数据的元数据</p>
+<p>包括：描述元数据，管理元数据，记录元数据，书目元数据，保存元数据</p>
+<p>5.元数据来源</p>
+<p>1）应用程序中的元数据存储库</p>
+<p>2）业务术语表</p>
+<p>3）商业智能工具</p>
+<p>​    概述信息，类，对象，衍生信息和计算的项，过滤器，报表，报表字段，报表展现，报表用户，报表发布频率，报表发布渠道等</p>
+<p>4）配置管理工具</p>
+<p>配置管理工具或数据库（CMDB）提供管理和维护IT资产，它们之间的关系以及资产的合同细节相关元数据功能。</p>
+<p>5）数据字典</p>
+<p>6）数据集成工具</p>
+<p>7）数据库管理和系统目录</p>
+<p>8）数据映射管理工具</p>
+<p>9）数据质量工具</p>
+<p>10）字典和目录</p>
+<p>11）事件消息工具</p>
+<p>12）建模工具和存储库</p>
+<p>13）参考数据库</p>
+<p>14）注册服务</p>
+<p>15）其他元数据存储</p>
+<p>6.元数据架构的类型</p>
+<p>1）集中式元数据架构</p>
+<p><img src="/%E6%88%AA%E5%B1%8F2022-11-14-11.40.05.png" alt="截屏2022-11-14 11.40.05"></p>
+<p>2）分布式元数据架构</p>
+<p><img src="/%E6%88%AA%E5%B1%8F2022-11-14-11.40.34.png" alt="截屏2022-11-14 11.40.34"></p>
+<p>3）混合式元数据架构</p>
+<p><img src="/%E6%88%AA%E5%B1%8F2022-11-14-11.41.20.png" alt="截屏2022-11-14 11.41.20"></p>
+<p>4）双向元数据架构</p>
+<h2 id="活动"><a href="#活动" class="headerlink" title="活动"></a>活动</h2><h3 id="定义元数据战略"><a href="#定义元数据战略" class="headerlink" title="定义元数据战略"></a>定义元数据战略</h3><p>步骤包括：</p>
+<ol>
+<li>启动元数据战略计划</li>
+<li>组织关键利益相关方的访谈</li>
+<li>评估现有元数据资源和信息架构</li>
+<li>开发未来的元数据架构</li>
+<li>制定分阶段实施计划</li>
+</ol>
+<h3 id="理解元数据需求"><a href="#理解元数据需求" class="headerlink" title="理解元数据需求"></a>理解元数据需求</h3><p>元数据综合解决方案由以下功能点组成：</p>
+<ol>
+<li>更新频次</li>
+<li>同步情况</li>
+<li>历史信息</li>
+<li>访问权限</li>
+<li>存储结构</li>
+<li>集成要求</li>
+<li>运维要求</li>
+<li>管理要求</li>
+<li>质量要求</li>
+<li>安全要求</li>
+</ol>
+<h3 id="定义元数据架构"><a href="#定义元数据架构" class="headerlink" title="定义元数据架构"></a>定义元数据架构</h3><p>1.创建元模型</p>
+<p>元数据存储库元模型例子：</p>
+<p><img src="/%E6%88%AA%E5%B1%8F2022-11-14-15.57.01.png" alt="截屏2022-11-14 15.57.01"></p>
+<p>2.应用元数据标准</p>
+<p>3.管理元数据存储</p>
+<h3 id="创建和维护元数据"><a href="#创建和维护元数据" class="headerlink" title="创建和维护元数据"></a>创建和维护元数据</h3><p>元数据管理的一般原则描述了管理元数据质量的方法：</p>
+<p>1）责任。认识到元数据通常是通过现有流程产生，因此流程的执行者对元数据的质量负责</p>
+<p>2）标准。制定、执行和审计元数据标准，简化集成过程，并且适用。</p>
+<p>3）改进。建立反馈机制保障用户可以将不确定或已过时的元数据通知元数据管理团队</p>
+<p>1.整合元数据</p>
+<p>2.分发和传递元数据</p>
+<h3 id="查询、报告和分析元数据"><a href="#查询、报告和分析元数据" class="headerlink" title="查询、报告和分析元数据"></a>查询、报告和分析元数据</h3><p>元数据指导如何使用数据资产：在商务智能、商业决策以及业务语义方面使用元数据。元数据存储库应具有前端应用程序，并支持查询和获取功能，从而满足以上各类数据资产管理要求。提供给业务用户的应用界面和功能与提供给技术用户和开发人员的界面和功能有所不同，后者可能会包括有助于新功能开发或有助于解决数据仓库和商务智能项目中的数据定义问题的功能。</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>管理元数据的工具是元数据存储库。</p>
+<p>包括整合层和手工更新接口。处理和使用元数据的工具集成到元数据存储库中作为元数据来源。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="数据血缘和影响分析"><a href="#数据血缘和影响分析" class="headerlink" title="数据血缘和影响分析"></a>数据血缘和影响分析</h3><p><img src="/DAMA%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2022-12-12-11.01.48.png" alt="截屏2022-12-12 11.01.48"></p>
+<p>示例图。</p>
+<p><img src="/DAMA%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2022-12-12-11.02.22.png" alt="截屏2022-12-12 11.02.22"></p>
+<p>要想成功发现数据血缘关系，需要兼顾业务焦点和技术焦点</p>
+<p>1）业务焦点。根据业务优先级寻找数据元的血缘关系。从目标位置回溯到具体数据起源的源系统。通过扫描那些发生迁移、传送或更新的数据元，确保业务数据使用者理解特定数据元在系统间迁移时发生了什么。</p>
+<p>2）技术焦点。从源系统开始识别直接相关数据使用者，一次识别间接的数据使用者，直到识别出所有系统位置。技术人员可以从这个系统的识别策略中获益，有助于回答各种各样的数据问题。</p>
+<h3 id="应用于大数据采集的元数据"><a href="#应用于大数据采集的元数据" class="headerlink" title="应用于大数据采集的元数据"></a>应用于大数据采集的元数据</h3><h2 id="实施指南"><a href="#实施指南" class="headerlink" title="实施指南"></a>实施指南</h2><p>使用渐进的步骤建设实施受控的元数据管理环境，可减少组织的风险，并便于用户接受。使用开源的关系型数据库平台来实施元数据存储，可以应对实施存储库项目开始时可能无法预料的各种控制和接口问题。</p>
+<h3 id="就绪评估-x2F-风险评估"><a href="#就绪评估-x2F-风险评估" class="headerlink" title="就绪评估&#x2F;风险评估"></a>就绪评估&#x2F;风险评估</h3><p>评估缺失高质量元数据可能带来的影响如下：</p>
+<p>1）因不正确、不完整和不合理的假设或缺乏数据内容的知识导致错误判断</p>
+<p>2）暴露敏感数据，使客户或员工面临风险，影响商业信誉和导致法律纠纷</p>
+<p>3）如果了解数据的那些领域专家们离开了，那么他们了解的知识也随之带走了。</p>
+<h3 id="组织和文化变革"><a href="#组织和文化变革" class="headerlink" title="组织和文化变革"></a>组织和文化变革</h3><h2 id="元数据治理"><a href="#元数据治理" class="headerlink" title="元数据治理"></a>元数据治理</h2>
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>再接再厉-------------</div>
+    
+</div>
+
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DAMA/" rel="tag"># DAMA</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag"># 数据管理</a>
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/" rel="tag"># 读书记录</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/08/16/DAMA%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%92%8C%E5%95%86%E5%8A%A1%E6%99%BA%E8%83%BD/" rel="prev" title="DAMA（十一）数据仓库和商务智能">
+      <i class="fa fa-chevron-left"></i> DAMA（十一）数据仓库和商务智能
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E9%A9%B1%E5%8A%A8%E5%9B%A0%E7%B4%A0"><span class="nav-number">1.</span> <span class="nav-text">业务驱动因素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E4%B8%8E%E5%8E%9F%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">目标与原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">3.</span> <span class="nav-text">基本概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B4%BB%E5%8A%A8"><span class="nav-number"></span> <span class="nav-text">活动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%85%83%E6%95%B0%E6%8D%AE%E6%88%98%E7%95%A5"><span class="nav-number">1.</span> <span class="nav-text">定义元数据战略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E5%85%83%E6%95%B0%E6%8D%AE%E9%9C%80%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">理解元数据需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%85%83%E6%95%B0%E6%8D%AE%E6%9E%B6%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">定义元数据架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%92%8C%E7%BB%B4%E6%8A%A4%E5%85%83%E6%95%B0%E6%8D%AE"><span class="nav-number">4.</span> <span class="nav-text">创建和维护元数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E3%80%81%E6%8A%A5%E5%91%8A%E5%92%8C%E5%88%86%E6%9E%90%E5%85%83%E6%95%B0%E6%8D%AE"><span class="nav-number">5.</span> <span class="nav-text">查询、报告和分析元数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number"></span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number"></span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%A1%80%E7%BC%98%E5%92%8C%E5%BD%B1%E5%93%8D%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">数据血缘和影响分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E4%BA%8E%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E7%9A%84%E5%85%83%E6%95%B0%E6%8D%AE"><span class="nav-number">2.</span> <span class="nav-text">应用于大数据采集的元数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%96%BD%E6%8C%87%E5%8D%97"><span class="nav-number"></span> <span class="nav-text">实施指南</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%B1%E7%BB%AA%E8%AF%84%E4%BC%B0-x2F-%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0"><span class="nav-number">1.</span> <span class="nav-text">就绪评估&#x2F;风险评估</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E7%BB%87%E5%92%8C%E6%96%87%E5%8C%96%E5%8F%98%E9%9D%A9"><span class="nav-number">2.</span> <span class="nav-text">组织和文化变革</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86"><span class="nav-number"></span> <span class="nav-text">元数据治理</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">kurl</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kurl</span>
+</div><div>
+<!--添加网站运行时间-->
+<span>小破站已经在风雨中度过了</span>
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    function createtime() {
+        const startTime = '09/27/2018 00:12:55',
+            start = new Date(startTime)
+        let mill = new Date() - start,
+            seconds = Math.floor(mill / 1000),
+            mins = Math.floor(seconds / 60),
+            hours = Math.floor(mins / 60),
+            days = Math.floor(hours / 24)
+        const time = {
+            seconds: seconds - mins * 60,
+            mins: mins - hours * 60,
+            hours: hours - days * 24,
+        }
+        for (const k in time) {
+            time[k] = `${time[k]}`.padStart(2, '0')
+        }
+        document.getElementById("timeDate").innerHTML = ` ${days} 天`
+        document.getElementById("times").innerHTML = ` ${time.hours} 小时 ${time.mins} 分 ${time.seconds} 秒`
+    }
+    setInterval(createtime, 500)
+</script>
+</div>
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  PV<span id="busuanzi_value_site_pv"></span>，UV<span id="busuanzi_value_site_uv"></span>
+</span>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
