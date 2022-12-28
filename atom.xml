@@ -6,7 +6,7 @@
   <link href="http://www.kurl00.xyz/atom.xml" rel="self"/>
   
   <link href="http://www.kurl00.xyz/"/>
-  <updated>2022-12-28T09:21:49.282Z</updated>
+  <updated>2022-12-28T09:44:01.267Z</updated>
   <id>http://www.kurl00.xyz/</id>
   
   <author>
@@ -17,19 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>DAMA（十四）大数据和数据科学</title>
+    <link href="http://www.kurl00.xyz/2022/12/29/DAMA%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%92%8C%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    <id>http://www.kurl00.xyz/2022/12/29/DAMA%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%92%8C%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/</id>
+    <published>2022-12-28T17:44:01.000Z</published>
+    <updated>2022-12-28T09:44:01.267Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>DAMA（十三）数据质量</title>
     <link href="http://www.kurl00.xyz/2022/12/13/DAMA%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89%E6%95%B0%E6%8D%AE%E8%B4%A8%E9%87%8F/"/>
     <id>http://www.kurl00.xyz/2022/12/13/DAMA%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89%E6%95%B0%E6%8D%AE%E8%B4%A8%E9%87%8F/</id>
     <published>2022-12-12T18:00:58.000Z</published>
-    <updated>2022-12-28T09:21:49.282Z</updated>
+    <updated>2022-12-28T09:47:29.849Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/%E6%88%AA%E5%B1%8F2022-12-12-18.02.14.png&quot; alt=&quot;截屏2022-12-12 18.02.14&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;业务驱动因素&quot;&gt;&lt;a href=&quot;#业务驱动因素&quot;</summary>
+    <summary type="html">&lt;p&gt;&lt;img</summary>
         
       
     
