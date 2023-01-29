@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.kurl00.xyz","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="引言是一种基于能力成熟度模型框架的能力提升方案。描述了数据管理能力初始状态发展到最优化的过程。 成熟度模型通过描述各阶段能力特点来定义成熟度的级别。当一个组织满足某阶段能力特征时，就可以评估其成熟度等级，并制定一个提高能力的计划。  0级。无能力级 1级。初始级或临时级：成功取决于个人的能力 2级。可重复级：制定了最初级的流程规则 3级。已定义级：已建立标准并使用 4级。已管理级：能力可以被量化和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DAMA（十五）数据管理成熟度评估">
+<meta property="og:url" content="http://www.kurl00.xyz/2023/01/29/DAMA%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%88%90%E7%86%9F%E5%BA%A6%E8%AF%84%E4%BC%B0/index.html">
+<meta property="og:site_name" content="kurl00">
+<meta property="og:description" content="引言是一种基于能力成熟度模型框架的能力提升方案。描述了数据管理能力初始状态发展到最优化的过程。 成熟度模型通过描述各阶段能力特点来定义成熟度的级别。当一个组织满足某阶段能力特征时，就可以评估其成熟度等级，并制定一个提高能力的计划。  0级。无能力级 1级。初始级或临时级：成功取决于个人的能力 2级。可重复级：制定了最初级的流程规则 3级。已定义级：已建立标准并使用 4级。已管理级：能力可以被量化和">
+<meta property="og:locale">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/29/DAMA%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%88%90%E7%86%9F%E5%BA%A6%E8%AF%84%E4%BC%B0/%E6%88%AA%E5%B1%8F2023-01-29-16.07.28.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/29/DAMA%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%88%90%E7%86%9F%E5%BA%A6%E8%AF%84%E4%BC%B0/%E6%88%AA%E5%B1%8F2023-01-29-16.18.55.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/29/DAMA%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%88%90%E7%86%9F%E5%BA%A6%E8%AF%84%E4%BC%B0/%E6%88%AA%E5%B1%8F2023-01-29-17.28.16.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/29/DAMA%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%88%90%E7%86%9F%E5%BA%A6%E8%AF%84%E4%BC%B0/%E6%88%AA%E5%B1%8F2023-01-29-18.03.01.png">
+<meta property="article:published_time" content="2023-01-29T15:33:27.000Z">
+<meta property="article:modified_time" content="2023-01-29T10:10:19.064Z">
+<meta property="article:author" content="kurl">
+<meta property="article:tag" content="DAMA">
+<meta property="article:tag" content="数据管理">
+<meta property="article:tag" content="读书记录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.kurl00.xyz/2023/01/29/DAMA%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%88%90%E7%86%9F%E5%BA%A6%E8%AF%84%E4%BC%B0/%E6%88%AA%E5%B1%8F2023-01-29-16.07.28.png">
+
+<link rel="canonical" href="http://www.kurl00.xyz/2023/01/29/DAMA%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%88%90%E7%86%9F%E5%BA%A6%E8%AF%84%E4%BC%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>DAMA（十五）数据管理成熟度评估 | kurl00</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="kurl00" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">kurl00</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">next</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.kurl00.xyz/2023/01/29/DAMA%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%88%90%E7%86%9F%E5%BA%A6%E8%AF%84%E4%BC%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kurl">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kurl00">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DAMA（十五）数据管理成熟度评估
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-01-29 15:33:27 / Modified: 10:10:19" itemprop="dateCreated datePublished" datetime="2023-01-29T15:33:27Z">2023-01-29</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>是一种基于能力成熟度模型框架的能力提升方案。描述了数据管理能力初始状态发展到最优化的过程。</p>
+<p>成熟度模型通过描述各阶段能力特点来定义成熟度的级别。当一个组织满足某阶段能力特征时，就可以评估其成熟度等级，并制定一个提高能力的计划。</p>
+<ol>
+<li>0级。无能力级</li>
+<li>1级。初始级或临时级：成功取决于个人的能力</li>
+<li>2级。可重复级：制定了最初级的流程规则</li>
+<li>3级。已定义级：已建立标准并使用</li>
+<li>4级。已管理级：能力可以被量化和控制</li>
+<li>5级。优化级：能力提升的目标是可量化的</li>
+</ol>
+<p>每个级别中，判定标准是通过展现的能力特征来描述的。</p>
+<p>基于评估结果，组织可以制定路线图以实现以下目标：</p>
+<p>1）与过程，方法，资源和自动化相关的高价值改进机会</p>
+<p>2）符合业务战略的能力</p>
+<p>3）为定期基于模型评估组织能力开展治理项目</p>
+<p>数据管理成熟度评估（Data Management Maturity Assessment，DMMA）可用于全面评估数据管理，也可用于聚焦单个知识领域甚至单个过程。无论聚焦点是什么，都可以帮助弥合业务部门和IT部门在数据管理实践的健康状况和有效性方面的观念冲突。提供了一种用于描述数据管理知识领域进展情况的通用语言，也提供了一种可以根据组织的战略优先事项进行调整的基于阶段的改进路径。因此，可以用于设置和衡量组织目标，以及将该组织与其他组织或行业基准进行比较。</p>
+<h3 id="业务驱动因素"><a href="#业务驱动因素" class="headerlink" title="业务驱动因素"></a>业务驱动因素</h3><p>各组织进行能力成熟度评估有以下几个原因</p>
+<p>1）监管。监管对数据管理提出了最低成熟度水平要求</p>
+<p>2）数据治理。出于规划和合规性目的，数据治理需要进行成熟度评估</p>
+<p>3）过程改进的组织就绪。组织认识到要改进其实践过程应从评估其当前状态开始。</p>
+<p>4）组织变更。组织变更带来数据管理挑战</p>
+<p>5）新技术。技术进步提供了管理和使用数据的新方法，组织希望了解成功采用的可能性</p>
+<p>6）数据管理问题。当需要解决数据质量问题或应对其他数据管理挑战时，组织希望对其当前的状态进行评估，以便更好的决定如何实施变更。</p>
+<h3 id="目标和原则"><a href="#目标和原则" class="headerlink" title="目标和原则"></a>目标和原则</h3><p>主要目标：评估关键数据管理活动的当前状态，以便制定计划进行改进。评估通过分析具体的优势和弱点，将组织置于成熟度水平量尺上，从而帮助组织认知，确定优先次序和实施改进机会</p>
+<p>在实现其主要目标时，DMMA可以对文化产生积极影响，有助于：</p>
+<p>1）向利益相关方介绍数据管理概念、原则和实践</p>
+<p>2）厘清利益相关方在组织数据方面的角色和责任</p>
+<p>3）强调将数据作为关键资产进行管理的必要性</p>
+<p><img src="/2023/01/29/DAMA%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%88%90%E7%86%9F%E5%BA%A6%E8%AF%84%E4%BC%B0/%E6%88%AA%E5%B1%8F2023-01-29-16.07.28.png" alt="截屏2023-01-29 16.07.28"></p>
+<p>4）扩大对整个组织内数据管理活动的认识</p>
+<p>5）有助于改进有效数据治理所需的协作</p>
+<p>根据评估结果，组织可以丰富数据管理大纲，从而支撑组织的运营和战略方向。通常，数据管理的计划存在孤岛问题，它们很少从企业视图审视数据。DMMA帮助组织刻画组织整体战略的统一愿景，还能组织明确优先事项和目标，并制定综合改进计划。</p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
+<li>评价等级及特点</li>
+</ol>
+<p><img src="/2023/01/29/DAMA%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%88%90%E7%86%9F%E5%BA%A6%E8%AF%84%E4%BC%B0/%E6%88%AA%E5%B1%8F2023-01-29-16.18.55.png" alt="截屏2023-01-29 16.18.55"></p>
+<p>CMM通常定义5～6个成熟度级别，每个级别有各自的特性，从初始级到优化级。</p>
+<p>1）0级：无能力。数据管理中，管理活动或正式企业流程处于无组织的状态。</p>
+<p>2）1级：初始&#x2F;临时。使用有限的工具集进行通用的数据管理，很少或根本没有治理活动。数据处理高度依赖与少数专家，角色和责任在各部门中分开定义。每个数据所有者自主接收、生成和发送数据空间的应用不一致。管理数据的解决方案是有限的。数据质量问题普遍存在，但无法得到解决，基础设施支持处于业务单元级别。</p>
+<p>3）2级：可重复。有一致的工具和角色定义来支持流程执行。 在2级中，组织开始使用集中化的工具，并为数据管理提供更多的监控手段。角色的定义和流程并不完全依赖于特定专家。组织对数据质量问题和概念有认识，开始认识到主数据和参考数据的概念</p>
+<p>4）3级已定义：新兴数据管理能力。在组织中的数据复制受到控制，总体数据质量普遍提高，有协调一致的政策定义和管理。越会赠诗的流程定义越能显著减少人工干预，伴随着几种化的设计流程，意味着流程的结果更加可预测。</p>
+<p>5）4级已管理。从1～3级增长中获得的经验积累使组织能够在即将开展新项目和任务时预测结果，开始管理与数据相关的风险，数据管理包括一些绩效指标。特点：包括从桌面到基础设施的数据管理工具标准化，以及结构良好的集中规划和治理功能。此级别的机构在数据质量和全组织数据管理能力等方面有显著性提高。</p>
+<p>6）5级优化。当数据管理实践得到优化时，由于流程自动化和技术变更管理，它们是高度可预测的，组织会更关注于持续改进。工具支持跨流程查看数据，控制数据的扩散，防止不必要的复制，使用容易理解的指标来管理和度量数据质量和过程。</p>
+<ol start="2">
+<li>评估标准</li>
+</ol>
+<p>当使用可映射到DAMA- DMBOK数据管理知识领域模型进行评估时，可以根据语境关系图中的类别制定标准。</p>
+<p><img src="/2023/01/29/DAMA%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%88%90%E7%86%9F%E5%BA%A6%E8%AF%84%E4%BC%B0/%E6%88%AA%E5%B1%8F2023-01-29-17.28.16.png" alt="截屏2023-01-29 17.28.16"></p>
+<p>1）活动。活动或流程在多大程度上已到位？是否定义了有效和高效执行的标准？活动的定义和执行情况如何？是否产生最佳实践输出？</p>
+<p>2）工具。该活动在多大程度上由一组通用工具实现自动化和支持？是否在特定角色和职责范围内提供工具培训？ 工具是否在需要的时候和需要的地方可用？它们是否优化配置以提供最有效和最高效的结果？长期技术计划应制定到何种程度，才能适应未来的能力？</p>
+<p>3）标准。活动在多大程度上得到一套通用标准的支持？标准是否有文件记录？标准是否有治理活动和变更管理活动强制执行和支持？</p>
+<p>4）人员和资源。组织在多大程度上配备人员执行活动？执行活动需要哪些特定的技能、训练和知识？角色和职责的定义如何？</p>
+<ol start="3">
+<li>现有DMMA框架</li>
+</ol>
+<p>（1）CMMI数据管理成熟度模型（DMM）</p>
+<p>1）数据管理策略</p>
+<p>2）数据治理</p>
+<p>3）数据质量</p>
+<p>4）平台与架构</p>
+<p>5）数据操作</p>
+<p>6）支持流程</p>
+<p>（2）EDM委员会DCAM</p>
+<p>​	DCAM是成员们努力在数据管理最佳实践上达成共识的结果，描述了与可持 数据管理项目开发相 关的37 项能力和115 个子能力</p>
+<p>（3）IBM数据治理委员会成熟度模型</p>
+<p>围绕4个关键类别组成：<br>1）结果。数据风险管理和合规、价值创造</p>
+<p>2）使能因素。组织结构和认知、政策、管理</p>
+<p>3）核心内容。数据质量管理、信息生命周期管理、信息安全和隐私</p>
+<p>4）支持内容。数据架构、分类和元数据、审计信息、日志记录和报告</p>
+<p>（4）斯坦福数据治理成熟度模型</p>
+<p>（5）Gartner的企业信息管理成熟度模型</p>
+<h2 id="活动"><a href="#活动" class="headerlink" title="活动"></a>活动</h2><h3 id="规划评估活动"><a href="#规划评估活动" class="headerlink" title="规划评估活动"></a>规划评估活动</h3><ol>
+<li><p>定义目标</p>
+</li>
+<li><p>选择框架</p>
+</li>
+<li><p>定义组织范围</p>
+<p>1）局部评估</p>
+<p>2）企业评估</p>
+</li>
+<li><p>定义交互方法</p>
+</li>
+<li><p>计划沟通</p>
+</li>
+</ol>
+<h3 id="执行成熟度评估"><a href="#执行成熟度评估" class="headerlink" title="执行成熟度评估"></a>执行成熟度评估</h3><ol>
+<li><p>收集信息</p>
+</li>
+<li><p>执行评估</p>
+<p>改进需要遵循如下过程</p>
+<p>​	1）审查评级方法，并为每个工作产品或活动给定初步评级</p>
+<p>​	2）记录支持证据</p>
+<p>​	3）与参与者一起讨论，就每个领域的最终评分达成共识。在合适的情况下，根据每个标准的重要性使用不同权重</p>
+<p>​	4）记录关于模型标准的声明和评审员的解释，作为评级的说明</p>
+<p>​	5）开发可视化工具，展示说明评估结果</p>
+</li>
+</ol>
+<h3 id="解释结果及建议"><a href="#解释结果及建议" class="headerlink" title="解释结果及建议"></a>解释结果及建议</h3><ol>
+<li><p>报告评估结果</p>
+<p>1）评估的业务驱动因素</p>
+<p>2）评估的整体结果</p>
+<p>3）按主题分类有差距的评级</p>
+<p>4）弥补差距的建议方法</p>
+<p>5）所观察到的组织的优势</p>
+<p>6）进展的风险</p>
+<p>7）投资和成功选项</p>
+<p>8）衡量进展的治理和指标</p>
+<p>9）资源分析与未来潜在的效用</p>
+<p>10）可在组织内使用或重复使用的组件</p>
+</li>
+<li><p>制定管理层简报</p>
+</li>
+</ol>
+<h3 id="制定有针对性的改进计划"><a href="#制定有针对性的改进计划" class="headerlink" title="制定有针对性的改进计划"></a>制定有针对性的改进计划</h3><p>线路图或参考计划应包括：</p>
+<p>1）对特定数据管理功能进行改进的系列活动</p>
+<p>2）实施改进活动的实践表</p>
+<p>3）一旦活动实施，DMMA评级的预期改善情况</p>
+<p>4）监督活动，包括在时间线上逐渐成熟的监督</p>
+<h3 id="重新评估成熟度"><a href="#重新评估成熟度" class="headerlink" title="重新评估成熟度"></a>重新评估成熟度</h3><p>1）通过第一次评估建立基线评级</p>
+<p>2）定义重新评估参数，包括组织范围</p>
+<p>3）根据需要，在公布的时间表上重复DMM评估</p>
+<p>4）跟踪相对于初始基线的趋势</p>
+<p>5）根据重新评估结果制定建议。</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>1）数据管理成熟度框架。</p>
+<p>2）沟通计划。</p>
+<p>3）写作工具。</p>
+<p>4）知识管理和元数据存储库。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="选择DMM框架"><a href="#选择DMM框架" class="headerlink" title="选择DMM框架"></a>选择DMM框架</h3><p>1）易用性。实践活动时以非技术性术语来描述的，它传达了活动的功能本质</p>
+<p>2）全面性。该框架沙区广泛的数据管理活动，包括业务参与，而不仅仅是I 过程</p>
+<p>3）可扩展性和灵活性。框架的结构能够支持增强行业特定或附加的规程，并且可以根据组织 的需要全部或部分使用</p>
+<p>4）内置的未来演进路径。虽然不同组织确定的优先级不同，但DVM框架描述了每个功能逻辑 前进的方式。</p>
+<p>5）行业不可知论与行业特定论。某些组织受益于行业特定的方法，但其他组织受益于更通用 的 框 架 。 所 有 的 D M M 框 架 都 应 该 遵 循 跨 垂 直 领 域 的 数 据 管 理 最 佳 实践 </p>
+<p>6）抽象或详细程度。实践和评佔标谁表达详细，可以确保它们指导相关执行工作。</p>
+<p>7）非规定性。框架描述了需要执行的内容，而不是必须如何执行。</p>
+<p>8）按主题组织。框架将数据管理活动放置在适当的情景中，使每个活动都能够单独评估，同 时又可识别依赖关系</p>
+<p>9）可重复。该框架可以得到 一致的解释，支持可重复的结果，以便将一个组织与其行业中的 其他组织进行比较，并跟踪一段时间内的进展情况</p>
+<p>10）有中立的独立组织支持。为了避免利益冲突，该模型应由保持中立的供应商广泛提供，以 确保最佳实践的广泛代表性</p>
+<p>11）技术中立。模型的重点应该放在实践上，而不是放在工具上</p>
+<p>12）培训支持。该模型有全面的培训支持，使专业人员能够掌握框架并优化其使用方法</p>
+<h3 id="DAMA-DMBOK框架使用"><a href="#DAMA-DMBOK框架使用" class="headerlink" title="DAMA-DMBOK框架使用"></a>DAMA-DMBOK框架使用</h3><h2 id="实施指南"><a href="#实施指南" class="headerlink" title="实施指南"></a>实施指南</h2><h3 id="就绪评估-x2F-风险评估"><a href="#就绪评估-x2F-风险评估" class="headerlink" title="就绪评估&#x2F;风险评估"></a>就绪评估&#x2F;风险评估</h3><p><img src="/2023/01/29/DAMA%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%88%90%E7%86%9F%E5%BA%A6%E8%AF%84%E4%BC%B0/%E6%88%AA%E5%B1%8F2023-01-29-18.03.01.png" alt="截屏2023-01-29 18.03.01"></p>
+<h3 id="组织和文化变革"><a href="#组织和文化变革" class="headerlink" title="组织和文化变革"></a>组织和文化变革</h3><h2 id="成熟度管理治理"><a href="#成熟度管理治理" class="headerlink" title="成熟度管理治理"></a>成熟度管理治理</h2><p>###DMMA过程监督</p>
+<h3 id="度量指标"><a href="#度量指标" class="headerlink" title="度量指标"></a>度量指标</h3><p>指标可能包括：</p>
+<p>1）DMMA评级</p>
+<p>2）资源利用率</p>
+<p>3）风险敞口</p>
+<p>4）支出管理</p>
+<p>5）DMMA的输入</p>
+<p>6）变革速度</p>
+
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>再接再厉-------------</div>
+    
+</div>
+
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DAMA/" rel="tag"># DAMA</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag"># 数据管理</a>
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/" rel="tag"># 读书记录</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/12/29/DAMA%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%92%8C%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" rel="prev" title="DAMA（十四）大数据和数据科学">
+      <i class="fa fa-chevron-left"></i> DAMA（十四）大数据和数据科学
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/" rel="next" title="DAMA（十六）数据管理组织与角色期望">
+      DAMA（十六）数据管理组织与角色期望 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E9%A9%B1%E5%8A%A8%E5%9B%A0%E7%B4%A0"><span class="nav-number">1.1.</span> <span class="nav-text">业务驱动因素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E5%92%8C%E5%8E%9F%E5%88%99"><span class="nav-number">1.2.</span> <span class="nav-text">目标和原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.3.</span> <span class="nav-text">基本概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B4%BB%E5%8A%A8"><span class="nav-number">2.</span> <span class="nav-text">活动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E5%88%92%E8%AF%84%E4%BC%B0%E6%B4%BB%E5%8A%A8"><span class="nav-number">2.1.</span> <span class="nav-text">规划评估活动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%88%90%E7%86%9F%E5%BA%A6%E8%AF%84%E4%BC%B0"><span class="nav-number">2.2.</span> <span class="nav-text">执行成熟度评估</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A%E7%BB%93%E6%9E%9C%E5%8F%8A%E5%BB%BA%E8%AE%AE"><span class="nav-number">2.3.</span> <span class="nav-text">解释结果及建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%B6%E5%AE%9A%E6%9C%89%E9%92%88%E5%AF%B9%E6%80%A7%E7%9A%84%E6%94%B9%E8%BF%9B%E8%AE%A1%E5%88%92"><span class="nav-number">2.4.</span> <span class="nav-text">制定有针对性的改进计划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E8%AF%84%E4%BC%B0%E6%88%90%E7%86%9F%E5%BA%A6"><span class="nav-number">2.5.</span> <span class="nav-text">重新评估成熟度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">3.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9DMM%E6%A1%86%E6%9E%B6"><span class="nav-number">4.1.</span> <span class="nav-text">选择DMM框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DAMA-DMBOK%E6%A1%86%E6%9E%B6%E4%BD%BF%E7%94%A8"><span class="nav-number">4.2.</span> <span class="nav-text">DAMA-DMBOK框架使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%96%BD%E6%8C%87%E5%8D%97"><span class="nav-number">5.</span> <span class="nav-text">实施指南</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%B1%E7%BB%AA%E8%AF%84%E4%BC%B0-x2F-%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0"><span class="nav-number">5.1.</span> <span class="nav-text">就绪评估&#x2F;风险评估</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E7%BB%87%E5%92%8C%E6%96%87%E5%8C%96%E5%8F%98%E9%9D%A9"><span class="nav-number">5.2.</span> <span class="nav-text">组织和文化变革</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%90%E7%86%9F%E5%BA%A6%E7%AE%A1%E7%90%86%E6%B2%BB%E7%90%86"><span class="nav-number">6.</span> <span class="nav-text">成熟度管理治理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%A6%E9%87%8F%E6%8C%87%E6%A0%87"><span class="nav-number">6.1.</span> <span class="nav-text">度量指标</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">kurl</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kurl</span>
+</div><div>
+<!--添加网站运行时间-->
+<span>小破站已经在风雨中度过了</span>
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    function createtime() {
+        const startTime = '09/27/2018 00:12:55',
+            start = new Date(startTime)
+        let mill = new Date() - start,
+            seconds = Math.floor(mill / 1000),
+            mins = Math.floor(seconds / 60),
+            hours = Math.floor(mins / 60),
+            days = Math.floor(hours / 24)
+        const time = {
+            seconds: seconds - mins * 60,
+            mins: mins - hours * 60,
+            hours: hours - days * 24,
+        }
+        for (const k in time) {
+            time[k] = `${time[k]}`.padStart(2, '0')
+        }
+        document.getElementById("timeDate").innerHTML = ` ${days} 天`
+        document.getElementById("times").innerHTML = ` ${time.hours} 小时 ${time.mins} 分 ${time.seconds} 秒`
+    }
+    setInterval(createtime, 500)
+</script>
+</div>
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  PV<span id="busuanzi_value_site_pv"></span>，UV<span id="busuanzi_value_site_uv"></span>
+</span>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

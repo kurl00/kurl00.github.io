@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.kurl00.xyz","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="引言成功的数据管理实践需要:  1）根据信息价值链调整数据责任制度，以此水学习横向管理。 2）将垂直的 (简仓)数据责任制度转变为共享的信息管理工作。  3）将局部业务关注点或『部门工作中的信息质量演变为整个组织的核心价值。  4）将对信息质量的思考从“数据清洗与数据质量记分卡〞提升转变为组织的基本能力。  5）对不良数据管理引发的代价和规范化数据管理带来的价值进行衡量。 变革法则1）组织不变革，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DAMA（十七）数据管理和组织变革管理">
+<meta property="og:url" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:site_name" content="kurl00">
+<meta property="og:description" content="引言成功的数据管理实践需要:  1）根据信息价值链调整数据责任制度，以此水学习横向管理。 2）将垂直的 (简仓)数据责任制度转变为共享的信息管理工作。  3）将局部业务关注点或『部门工作中的信息质量演变为整个组织的核心价值。  4）将对信息质量的思考从“数据清洗与数据质量记分卡〞提升转变为组织的基本能力。  5）对不良数据管理引发的代价和规范化数据管理带来的价值进行衡量。 变革法则1）组织不变革，">
+<meta property="og:locale">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2023-01-29-19.47.27.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2023-01-29-19.50.47.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2023-01-29-19.51.43.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2023-01-29-19.54.56.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2023-01-29-19.56.34.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2023-01-29-19.59.09.png">
+<meta property="article:published_time" content="2023-01-29T19:44:01.000Z">
+<meta property="article:modified_time" content="2023-01-29T12:00:56.432Z">
+<meta property="article:author" content="kurl">
+<meta property="article:tag" content="DAMA">
+<meta property="article:tag" content="数据管理">
+<meta property="article:tag" content="读书记录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2023-01-29-19.47.27.png">
+
+<link rel="canonical" href="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>DAMA（十七）数据管理和组织变革管理 | kurl00</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="kurl00" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">kurl00</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">next</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kurl">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kurl00">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DAMA（十七）数据管理和组织变革管理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-01-29 19:44:01 / Modified: 12:00:56" itemprop="dateCreated datePublished" datetime="2023-01-29T19:44:01Z">2023-01-29</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>成功的数据管理实践需要: </p>
+<p>1）根据信息价值链调整数据责任制度，以此水学习横向管理。</p>
+<p>2）将垂直的 (简仓)数据责任制度转变为共享的信息管理工作。 </p>
+<p>3）将局部业务关注点或『部门工作中的信息质量演变为整个组织的核心价值。 </p>
+<p>4）将对信息质量的思考从“数据清洗与数据质量记分卡〞提升转变为组织的基本能力。 </p>
+<p>5）对不良数据管理引发的代价和规范化数据管理带来的价值进行衡量。</p>
+<h2 id="变革法则"><a href="#变革法则" class="headerlink" title="变革法则"></a>变革法则</h2><p>1）组织不变革，人就变</p>
+<p>2）人们不会抗拒变革，但抵制被改变</p>
+<p>3）事情之所以存在时惯性所致</p>
+<p>4）除非有人推动变革，否则很可能止步不前</p>
+<p>5）如果不考虑人的因素，变革将很容易。</p>
+<p>需要对变革目标有清晰愿景，并明确定期与利益相关方沟通，以便在出现挑战时获得参与、认同、支持和持续的支持。</p>
+<h2 id="并非管理变革：而是管理转型过程"><a href="#并非管理变革：而是管理转型过程" class="headerlink" title="并非管理变革：而是管理转型过程"></a>并非管理变革：而是管理转型过程</h2><p><img src="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2023-01-29-19.47.27.png" alt="截屏2023-01-29 19.47.27"></p>
+<h2 id="科特的变革管理八大误区"><a href="#科特的变革管理八大误区" class="headerlink" title="科特的变革管理八大误区"></a>科特的变革管理八大误区</h2><p>###误区一：过于自满</p>
+<h3 id="误区二：未能建立足够强大的指导联盟"><a href="#误区二：未能建立足够强大的指导联盟" class="headerlink" title="误区二：未能建立足够强大的指导联盟"></a>误区二：未能建立足够强大的指导联盟</h3><h3 id="误区三：低估愿景的力量"><a href="#误区三：低估愿景的力量" class="headerlink" title="误区三：低估愿景的力量"></a>误区三：低估愿景的力量</h3><h3 id="误区四：10倍，100倍，1000倍的放大愿景"><a href="#误区四：10倍，100倍，1000倍的放大愿景" class="headerlink" title="误区四：10倍，100倍，1000倍的放大愿景"></a>误区四：10倍，100倍，1000倍的放大愿景</h3><h3 id="误区五：允许阻挡愿景的障碍存在"><a href="#误区五：允许阻挡愿景的障碍存在" class="headerlink" title="误区五：允许阻挡愿景的障碍存在"></a>误区五：允许阻挡愿景的障碍存在</h3><h3 id="误区六：未能创造短期收益"><a href="#误区六：未能创造短期收益" class="headerlink" title="误区六：未能创造短期收益"></a>误区六：未能创造短期收益</h3><h3 id="误区七：过早宣布胜利"><a href="#误区七：过早宣布胜利" class="headerlink" title="误区七：过早宣布胜利"></a>误区七：过早宣布胜利</h3><h3 id="误区八：忽视将变革融入企业文化"><a href="#误区八：忽视将变革融入企业文化" class="headerlink" title="误区八：忽视将变革融入企业文化"></a>误区八：忽视将变革融入企业文化</h3><h2 id="科特的重大变革八步法"><a href="#科特的重大变革八步法" class="headerlink" title="科特的重大变革八步法"></a>科特的重大变革八步法</h2><p><img src="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2023-01-29-19.50.47.png" alt="截屏2023-01-29 19.50.47"></p>
+<h3 id="树立紧迫感"><a href="#树立紧迫感" class="headerlink" title="树立紧迫感"></a>树立紧迫感</h3><ol>
+<li>自满的根源</li>
+</ol>
+<p>​	<img src="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2023-01-29-19.51.43.png" alt="截屏2023-01-29 19.51.43"></p>
+<ol start="2">
+<li>提高紧迫感</li>
+<li>谨慎使用危机</li>
+<li>中层和基层管理人员的作用</li>
+<li>紧迫感的程度</li>
+</ol>
+<h3 id="指导联盟"><a href="#指导联盟" class="headerlink" title="指导联盟"></a>指导联盟</h3><ol>
+<li>在联盟中发挥有效领导力的重要性</li>
+<li>信息管理环境中的示例</li>
+<li>建立有效团队</li>
+<li>避免群体思维</li>
+<li>信息管理环境中的示例</li>
+<li>共同目标</li>
+</ol>
+<h3 id="发展愿景和战略"><a href="#发展愿景和战略" class="headerlink" title="发展愿景和战略"></a>发展愿景和战略</h3><ol>
+<li>为何需要愿景</li>
+</ol>
+<p><img src="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2023-01-29-19.54.56.png" alt="截屏2023-01-29 19.54.56"></p>
+<ol start="2">
+<li>有效愿景的特性<ol>
+<li>充满想象</li>
+<li>吸引力</li>
+<li>可行性</li>
+<li>重点突出</li>
+<li>灵活性</li>
+<li>可交流性</li>
+</ol>
+</li>
+<li>建立有效愿景</li>
+</ol>
+<h3 id="沟通传达变革愿景"><a href="#沟通传达变革愿景" class="headerlink" title="沟通传达变革愿景"></a>沟通传达变革愿景</h3><p><img src="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2023-01-29-19.56.34.png" alt="截屏2023-01-29 19.56.34"></p>
+<ol>
+<li>保持简单</li>
+<li>在多种场合中运用愿景</li>
+<li>重复，重复，再重复</li>
+<li>言行一致</li>
+<li>解释不一致</li>
+<li>倾听和被倾听</li>
+</ol>
+<h2 id="变革的秘诀"><a href="#变革的秘诀" class="headerlink" title="变革的秘诀"></a>变革的秘诀</h2><h2 id="创新扩散和持续变革"><a href="#创新扩散和持续变革" class="headerlink" title="创新扩散和持续变革"></a>创新扩散和持续变革</h2><h3 id="随着创新扩散而需要克服的挑战"><a href="#随着创新扩散而需要克服的挑战" class="headerlink" title="随着创新扩散而需要克服的挑战"></a>随着创新扩散而需要克服的挑战</h3><h3 id="创新扩散的关键要素"><a href="#创新扩散的关键要素" class="headerlink" title="创新扩散的关键要素"></a>创新扩散的关键要素</h3><h3 id="创新采纳的五个阶段"><a href="#创新采纳的五个阶段" class="headerlink" title="创新采纳的五个阶段"></a>创新采纳的五个阶段</h3><p><img src="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/%E6%88%AA%E5%B1%8F2023-01-29-19.59.09.png" alt="截屏2023-01-29 19.59.09"></p>
+<h3 id="接受或拒绝创新变革的影响因素"><a href="#接受或拒绝创新变革的影响因素" class="headerlink" title="接受或拒绝创新变革的影响因素"></a>接受或拒绝创新变革的影响因素</h3><h2 id="持续变革"><a href="#持续变革" class="headerlink" title="持续变革"></a>持续变革</h2><h3 id="紧迫感-x2F-不满意感"><a href="#紧迫感-x2F-不满意感" class="headerlink" title="紧迫感&#x2F;不满意感"></a>紧迫感&#x2F;不满意感</h3><h3 id="构建愿景"><a href="#构建愿景" class="headerlink" title="构建愿景"></a>构建愿景</h3><h3 id="指导联盟-1"><a href="#指导联盟-1" class="headerlink" title="指导联盟"></a>指导联盟</h3><h3 id="相对优势和可观测性"><a href="#相对优势和可观测性" class="headerlink" title="相对优势和可观测性"></a>相对优势和可观测性</h3><h2 id="数据管理价值的沟通"><a href="#数据管理价值的沟通" class="headerlink" title="数据管理价值的沟通"></a>数据管理价值的沟通</h2><h3 id="沟通原则"><a href="#沟通原则" class="headerlink" title="沟通原则"></a>沟通原则</h3><h3 id="受众评估与准备"><a href="#受众评估与准备" class="headerlink" title="受众评估与准备"></a>受众评估与准备</h3><h3 id="人的因素"><a href="#人的因素" class="headerlink" title="人的因素"></a>人的因素</h3><h3 id="沟通计划"><a href="#沟通计划" class="headerlink" title="沟通计划"></a>沟通计划</h3><h3 id="保持沟通"><a href="#保持沟通" class="headerlink" title="保持沟通"></a>保持沟通</h3>
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>再接再厉-------------</div>
+    
+</div>
+
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DAMA/" rel="tag"># DAMA</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag"># 数据管理</a>
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/" rel="tag"># 读书记录</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/" rel="prev" title="DAMA（十六）数据管理组织与角色期望">
+      <i class="fa fa-chevron-left"></i> DAMA（十六）数据管理组织与角色期望
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%9D%A9%E6%B3%95%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">变革法则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E9%9D%9E%E7%AE%A1%E7%90%86%E5%8F%98%E9%9D%A9%EF%BC%9A%E8%80%8C%E6%98%AF%E7%AE%A1%E7%90%86%E8%BD%AC%E5%9E%8B%E8%BF%87%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">并非管理变革：而是管理转型过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%91%E7%89%B9%E7%9A%84%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86%E5%85%AB%E5%A4%A7%E8%AF%AF%E5%8C%BA"><span class="nav-number">4.</span> <span class="nav-text">科特的变革管理八大误区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AF%E5%8C%BA%E4%BA%8C%EF%BC%9A%E6%9C%AA%E8%83%BD%E5%BB%BA%E7%AB%8B%E8%B6%B3%E5%A4%9F%E5%BC%BA%E5%A4%A7%E7%9A%84%E6%8C%87%E5%AF%BC%E8%81%94%E7%9B%9F"><span class="nav-number">4.1.</span> <span class="nav-text">误区二：未能建立足够强大的指导联盟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AF%E5%8C%BA%E4%B8%89%EF%BC%9A%E4%BD%8E%E4%BC%B0%E6%84%BF%E6%99%AF%E7%9A%84%E5%8A%9B%E9%87%8F"><span class="nav-number">4.2.</span> <span class="nav-text">误区三：低估愿景的力量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AF%E5%8C%BA%E5%9B%9B%EF%BC%9A10%E5%80%8D%EF%BC%8C100%E5%80%8D%EF%BC%8C1000%E5%80%8D%E7%9A%84%E6%94%BE%E5%A4%A7%E6%84%BF%E6%99%AF"><span class="nav-number">4.3.</span> <span class="nav-text">误区四：10倍，100倍，1000倍的放大愿景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AF%E5%8C%BA%E4%BA%94%EF%BC%9A%E5%85%81%E8%AE%B8%E9%98%BB%E6%8C%A1%E6%84%BF%E6%99%AF%E7%9A%84%E9%9A%9C%E7%A2%8D%E5%AD%98%E5%9C%A8"><span class="nav-number">4.4.</span> <span class="nav-text">误区五：允许阻挡愿景的障碍存在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AF%E5%8C%BA%E5%85%AD%EF%BC%9A%E6%9C%AA%E8%83%BD%E5%88%9B%E9%80%A0%E7%9F%AD%E6%9C%9F%E6%94%B6%E7%9B%8A"><span class="nav-number">4.5.</span> <span class="nav-text">误区六：未能创造短期收益</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AF%E5%8C%BA%E4%B8%83%EF%BC%9A%E8%BF%87%E6%97%A9%E5%AE%A3%E5%B8%83%E8%83%9C%E5%88%A9"><span class="nav-number">4.6.</span> <span class="nav-text">误区七：过早宣布胜利</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AF%E5%8C%BA%E5%85%AB%EF%BC%9A%E5%BF%BD%E8%A7%86%E5%B0%86%E5%8F%98%E9%9D%A9%E8%9E%8D%E5%85%A5%E4%BC%81%E4%B8%9A%E6%96%87%E5%8C%96"><span class="nav-number">4.7.</span> <span class="nav-text">误区八：忽视将变革融入企业文化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%91%E7%89%B9%E7%9A%84%E9%87%8D%E5%A4%A7%E5%8F%98%E9%9D%A9%E5%85%AB%E6%AD%A5%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">科特的重大变革八步法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%91%E7%AB%8B%E7%B4%A7%E8%BF%AB%E6%84%9F"><span class="nav-number">5.1.</span> <span class="nav-text">树立紧迫感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E5%AF%BC%E8%81%94%E7%9B%9F"><span class="nav-number">5.2.</span> <span class="nav-text">指导联盟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E5%B1%95%E6%84%BF%E6%99%AF%E5%92%8C%E6%88%98%E7%95%A5"><span class="nav-number">5.3.</span> <span class="nav-text">发展愿景和战略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%9F%E9%80%9A%E4%BC%A0%E8%BE%BE%E5%8F%98%E9%9D%A9%E6%84%BF%E6%99%AF"><span class="nav-number">5.4.</span> <span class="nav-text">沟通传达变革愿景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%9D%A9%E7%9A%84%E7%A7%98%E8%AF%80"><span class="nav-number">6.</span> <span class="nav-text">变革的秘诀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E6%96%B0%E6%89%A9%E6%95%A3%E5%92%8C%E6%8C%81%E7%BB%AD%E5%8F%98%E9%9D%A9"><span class="nav-number">7.</span> <span class="nav-text">创新扩散和持续变革</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E7%9D%80%E5%88%9B%E6%96%B0%E6%89%A9%E6%95%A3%E8%80%8C%E9%9C%80%E8%A6%81%E5%85%8B%E6%9C%8D%E7%9A%84%E6%8C%91%E6%88%98"><span class="nav-number">7.1.</span> <span class="nav-text">随着创新扩散而需要克服的挑战</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E6%96%B0%E6%89%A9%E6%95%A3%E7%9A%84%E5%85%B3%E9%94%AE%E8%A6%81%E7%B4%A0"><span class="nav-number">7.2.</span> <span class="nav-text">创新扩散的关键要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E6%96%B0%E9%87%87%E7%BA%B3%E7%9A%84%E4%BA%94%E4%B8%AA%E9%98%B6%E6%AE%B5"><span class="nav-number">7.3.</span> <span class="nav-text">创新采纳的五个阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A5%E5%8F%97%E6%88%96%E6%8B%92%E7%BB%9D%E5%88%9B%E6%96%B0%E5%8F%98%E9%9D%A9%E7%9A%84%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0"><span class="nav-number">7.4.</span> <span class="nav-text">接受或拒绝创新变革的影响因素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%81%E7%BB%AD%E5%8F%98%E9%9D%A9"><span class="nav-number">8.</span> <span class="nav-text">持续变革</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A7%E8%BF%AB%E6%84%9F-x2F-%E4%B8%8D%E6%BB%A1%E6%84%8F%E6%84%9F"><span class="nav-number">8.1.</span> <span class="nav-text">紧迫感&#x2F;不满意感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E6%84%BF%E6%99%AF"><span class="nav-number">8.2.</span> <span class="nav-text">构建愿景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E5%AF%BC%E8%81%94%E7%9B%9F-1"><span class="nav-number">8.3.</span> <span class="nav-text">指导联盟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%AF%B9%E4%BC%98%E5%8A%BF%E5%92%8C%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7"><span class="nav-number">8.4.</span> <span class="nav-text">相对优势和可观测性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E4%BB%B7%E5%80%BC%E7%9A%84%E6%B2%9F%E9%80%9A"><span class="nav-number">9.</span> <span class="nav-text">数据管理价值的沟通</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%9F%E9%80%9A%E5%8E%9F%E5%88%99"><span class="nav-number">9.1.</span> <span class="nav-text">沟通原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%97%E4%BC%97%E8%AF%84%E4%BC%B0%E4%B8%8E%E5%87%86%E5%A4%87"><span class="nav-number">9.2.</span> <span class="nav-text">受众评估与准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%BA%E7%9A%84%E5%9B%A0%E7%B4%A0"><span class="nav-number">9.3.</span> <span class="nav-text">人的因素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%9F%E9%80%9A%E8%AE%A1%E5%88%92"><span class="nav-number">9.4.</span> <span class="nav-text">沟通计划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%9D%E6%8C%81%E6%B2%9F%E9%80%9A"><span class="nav-number">9.5.</span> <span class="nav-text">保持沟通</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">kurl</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kurl</span>
+</div><div>
+<!--添加网站运行时间-->
+<span>小破站已经在风雨中度过了</span>
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    function createtime() {
+        const startTime = '09/27/2018 00:12:55',
+            start = new Date(startTime)
+        let mill = new Date() - start,
+            seconds = Math.floor(mill / 1000),
+            mins = Math.floor(seconds / 60),
+            hours = Math.floor(mins / 60),
+            days = Math.floor(hours / 24)
+        const time = {
+            seconds: seconds - mins * 60,
+            mins: mins - hours * 60,
+            hours: hours - days * 24,
+        }
+        for (const k in time) {
+            time[k] = `${time[k]}`.padStart(2, '0')
+        }
+        document.getElementById("timeDate").innerHTML = ` ${days} 天`
+        document.getElementById("times").innerHTML = ` ${time.hours} 小时 ${time.mins} 分 ${time.seconds} 秒`
+    }
+    setInterval(createtime, 500)
+</script>
+</div>
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  PV<span id="busuanzi_value_site_pv"></span>，UV<span id="busuanzi_value_site_uv"></span>
+</span>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

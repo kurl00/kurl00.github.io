@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.kurl00.xyz","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="引言了解现有的组织和文化规范 数据管理组织的结构分散运营模式 数据管理职能分布在不同的业务部门和IT部门，委员会相互协作，不属于任何一个独立部门。 优点：组织结构相对扁平，数据管理组织与业务线或IT部门具有一致性。意味着对数据有清晰的理解，相对容易实施或改进 缺点：过多人员参与治理和制定决策，实施协作决策通常比发布号令更加困难。分散模式一般不太正式，可能难以长期性维持。为了取得成功，他们需要 一些">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DAMA（十六）数据管理组织与角色期望">
+<meta property="og:url" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/index.html">
+<meta property="og:site_name" content="kurl00">
+<meta property="og:description" content="引言了解现有的组织和文化规范 数据管理组织的结构分散运营模式 数据管理职能分布在不同的业务部门和IT部门，委员会相互协作，不属于任何一个独立部门。 优点：组织结构相对扁平，数据管理组织与业务线或IT部门具有一致性。意味着对数据有清晰的理解，相对容易实施或改进 缺点：过多人员参与治理和制定决策，实施协作决策通常比发布号令更加困难。分散模式一般不太正式，可能难以长期性维持。为了取得成功，他们需要 一些">
+<meta property="og:locale">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/%E6%88%AA%E5%B1%8F2023-01-29-18.13.50.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/%E6%88%AA%E5%B1%8F2023-01-29-18.14.38.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/%E6%88%AA%E5%B1%8F2023-01-29-18.19.42.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/%E6%88%AA%E5%B1%8F2023-01-29-18.20.47.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/%E6%88%AA%E5%B1%8F2023-01-29-18.24.03.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/%E6%88%AA%E5%B1%8F2023-01-29-18.24.23.png">
+<meta property="og:image" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/%E6%88%AA%E5%B1%8F2023-01-29-19.40.00.png">
+<meta property="article:published_time" content="2023-01-29T18:09:47.000Z">
+<meta property="article:modified_time" content="2023-01-29T11:42:41.745Z">
+<meta property="article:author" content="kurl">
+<meta property="article:tag" content="DAMA">
+<meta property="article:tag" content="数据管理">
+<meta property="article:tag" content="读书记录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/%E6%88%AA%E5%B1%8F2023-01-29-18.13.50.png">
+
+<link rel="canonical" href="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>DAMA（十六）数据管理组织与角色期望 | kurl00</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="kurl00" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">kurl00</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">next</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.kurl00.xyz/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kurl">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kurl00">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DAMA（十六）数据管理组织与角色期望
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-01-29 18:09:47 / Modified: 11:42:41" itemprop="dateCreated datePublished" datetime="2023-01-29T18:09:47Z">2023-01-29</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><h2 id="了解现有的组织和文化规范"><a href="#了解现有的组织和文化规范" class="headerlink" title="了解现有的组织和文化规范"></a>了解现有的组织和文化规范</h2><p><img src="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/%E6%88%AA%E5%B1%8F2023-01-29-18.13.50.png" alt="截屏2023-01-29 18.13.50"></p>
+<h2 id="数据管理组织的结构"><a href="#数据管理组织的结构" class="headerlink" title="数据管理组织的结构"></a>数据管理组织的结构</h2><h3 id="分散运营模式"><a href="#分散运营模式" class="headerlink" title="分散运营模式"></a>分散运营模式</h3><p><img src="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/%E6%88%AA%E5%B1%8F2023-01-29-18.14.38.png" alt="截屏2023-01-29 18.14.38"></p>
+<p>数据管理职能分布在不同的业务部门和IT部门，委员会相互协作，不属于任何一个独立部门。</p>
+<p>优点：组织结构相对扁平，数据管理组织与业务线或IT部门具有一致性。意味着对数据有清晰的理解，相对容易实施或改进</p>
+<p>缺点：过多人员参与治理和制定决策，实施协作决策通常比发布号令更加困难。分散模式一般不太正式，可能难以长期性维持。为了取得成功，他们需要 一些方法强化实践的 一致性，但这可能很难协调。使用分散模式来定义数据所有权，通常也比较因难</p>
+<h3 id="网络运营模式"><a href="#网络运营模式" class="headerlink" title="网络运营模式"></a>网络运营模式</h3><p><img src="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/%E6%88%AA%E5%B1%8F2023-01-29-18.19.42.png" alt="截屏2023-01-29 18.19.42"></p>
+<p>通过RACI (谁负责，Responsible;谁批准，Aecountable;咨询谁，Consulted; 通知谁，In-<br>f o r m e d ) 责 任 短 阵 ， 利 用 一系 列 的 文 件 记 录 联 系 和 责 任 制 度 ， 使 分 散 的 非 正 规 性 组 织 变 得 更 加 正 式 ， 称为网络模式</p>
+<p>网络模式的优点类似于分散模式 (结构扁平、观念一致、快速组建)。采用RACI，有助于在不 髭晌组织结构的情况下建立贲任制。它的缺点是需要維护和执行与RACI 相关的期望</p>
+<h3 id="集中运营模式"><a href="#集中运营模式" class="headerlink" title="集中运营模式"></a>集中运营模式</h3><p><img src="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/%E6%88%AA%E5%B1%8F2023-01-29-18.20.47.png" alt="截屏2023-01-29 18.20.47"></p>
+<p>最正式且成熟的数据管理运营模式是集中运营模式。所有工作都由数据管理组织掌 控。参与数据治理和数据管理的人员直接向负责治理、管理职责、元数据管理、数据质量管理、主 数据和参考数据管理、数据架构、业务分析等工作的数据管理主管报告</p>
+<p>优点：它为数据管理或数据治理建立了正式的管理职位，且拥有一个最终决策 人。因为职责是明确的，所以决策更容易。在组织内部，可以按不同的业务类型或业务主题分别管 理数据。</p>
+<p>缺点：实施集中模式通常需要重大的组织变革。将数据管理的角色从核心业务流程 正式分离，存在业务知识逐渐丢失的风险</p>
+<p>集中模式通常需要创建 一个新的组织。但问题出现了:数据管理组织在整个企业中的位置如 何?谁领导它，领导者向谁报告?对于数据管理组织而言，不再向C10 报告变得越来越普遍，因为 他们希望维护业务而非I 对数据的看法。这些组织通常也是共享服务部门、运营团队或者是首席数据官组织的 一 部 分</p>
+<h3 id="混合运营模式"><a href="#混合运营模式" class="headerlink" title="混合运营模式"></a>混合运营模式</h3><p> 混 合 运 营 模 式 包 含 分 散 模 式 和 集 中 模 式 的 优 点。 在 混 合 模 式 中 ， 一 个 集 中的数据管理卓越中心与分散的业务部门团队合作，通常通过 一个代表关键业务部门的执行指导委 员会和一系列针对特定问题的技术工作组来完成工作</p>
+<p>优点：它可以从组织的顶层制定适当的指导方向，并且有一位对数据管理或数据治理负责的高管。业务团队具有广泛的责任感，可以通过业务优先级调整给子更多的关注。他们受 益于这个专门的数据管理卓越中心的支持，有助于将重点放在特定的挑战上</p>
+<p><img src="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/%E6%88%AA%E5%B1%8F2023-01-29-18.24.03.png" alt="截屏2023-01-29 18.24.03"></p>
+<p>###联邦运营模式</p>
+<p><img src="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/%E6%88%AA%E5%B1%8F2023-01-29-18.24.23.png" alt="截屏2023-01-29 18.24.23"></p>
+<p>具有分散执行的集中策略。对于大型企业来说，它可能是唯 一可行的模式。 一个负责整个组织数据管理的主管领导，负责管理企业卓越中心。当然，不同的业务线有 权根据需求和优先级来适应要求。该模式使组织能够根据特定数据实体、部门挑战或区域优先级来 确定优先级。</p>
+<p>缺点：管理起来较复杂。它的层次太多，需要在业务线的自治和企业的需求之间取得平衡，而这种平衡会影响企业的优先级</p>
+<h3 id="确定组织的最佳模式"><a href="#确定组织的最佳模式" class="headerlink" title="确定组织的最佳模式"></a>确定组织的最佳模式</h3><h3 id="DMO替代放啊安和设计考虑因素"><a href="#DMO替代放啊安和设计考虑因素" class="headerlink" title="DMO替代放啊安和设计考虑因素"></a>DMO替代放啊安和设计考虑因素</h3><h2 id="关键成功因素"><a href="#关键成功因素" class="headerlink" title="关键成功因素"></a>关键成功因素</h2><p>无论数据管理组织的架构如何，有10 个因素始终被证明对其成功发择着关键作用: </p>
+<p>1）高管层的支持。<br>2）明确的愿景。<br>3）主动的变更管理。<br>4）领导者之间的共识。<br>5）持续沟通。<br>6）利益相关方的参与。<br>7）指导和培训。<br>8）采用度量策略。<br>9）坚持指导原则。<br>10）演进而非革命。</p>
+<h2 id="建立数据管理组织"><a href="#建立数据管理组织" class="headerlink" title="建立数据管理组织"></a>建立数据管理组织</h2><h3 id="识别当前的数据管理参与者"><a href="#识别当前的数据管理参与者" class="headerlink" title="识别当前的数据管理参与者"></a>识别当前的数据管理参与者</h3><h3 id="识别委员会的参与者"><a href="#识别委员会的参与者" class="headerlink" title="识别委员会的参与者"></a>识别委员会的参与者</h3><h3 id="识别和分析利益相关方"><a href="#识别和分析利益相关方" class="headerlink" title="识别和分析利益相关方"></a>识别和分析利益相关方</h3><p><img src="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E8%A7%92%E8%89%B2%E6%9C%9F%E6%9C%9B/%E6%88%AA%E5%B1%8F2023-01-29-19.40.00.png" alt="截屏2023-01-29 19.40.00"></p>
+<h3 id="让利益相关方参与进来"><a href="#让利益相关方参与进来" class="headerlink" title="让利益相关方参与进来"></a>让利益相关方参与进来</h3><h2 id="数据管理组织与其他数据相关机构间的沟通"><a href="#数据管理组织与其他数据相关机构间的沟通" class="headerlink" title="数据管理组织与其他数据相关机构间的沟通"></a>数据管理组织与其他数据相关机构间的沟通</h2><p>这些团体通常是:<br>1）首席数据官组织。<br>2）数据治理机构。<br>3）数据质量团队。<br>4）企业架构团队</p>
+<h3 id="首席数据官"><a href="#首席数据官" class="headerlink" title="首席数据官"></a>首席数据官</h3><h3 id="数据治理"><a href="#数据治理" class="headerlink" title="数据治理"></a>数据治理</h3><h3 id="数据质量"><a href="#数据质量" class="headerlink" title="数据质量"></a>数据质量</h3><h3 id="企业架构"><a href="#企业架构" class="headerlink" title="企业架构"></a>企业架构</h3><h3 id="管理全球化组织"><a href="#管理全球化组织" class="headerlink" title="管理全球化组织"></a>管理全球化组织</h3><h2 id="数据管理角色"><a href="#数据管理角色" class="headerlink" title="数据管理角色"></a>数据管理角色</h2><h3 id="组织角色"><a href="#组织角色" class="headerlink" title="组织角色"></a>组织角色</h3><h3 id="个人角色"><a href="#个人角色" class="headerlink" title="个人角色"></a>个人角色</h3><ol>
+<li>执行官角色</li>
+<li>业务角色</li>
+<li>IT角色</li>
+<li>混合角色</li>
+</ol>
+
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>再接再厉-------------</div>
+    
+</div>
+
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DAMA/" rel="tag"># DAMA</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" rel="tag"># 数据管理</a>
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/" rel="tag"># 读书记录</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/01/29/DAMA%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E6%88%90%E7%86%9F%E5%BA%A6%E8%AF%84%E4%BC%B0/" rel="prev" title="DAMA（十五）数据管理成熟度评估">
+      <i class="fa fa-chevron-left"></i> DAMA（十五）数据管理成熟度评估
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/01/30/DAMA%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%92%8C%E7%BB%84%E7%BB%87%E5%8F%98%E9%9D%A9%E7%AE%A1%E7%90%86/" rel="next" title="DAMA（十七）数据管理和组织变革管理">
+      DAMA（十七）数据管理和组织变革管理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E7%8E%B0%E6%9C%89%E7%9A%84%E7%BB%84%E7%BB%87%E5%92%8C%E6%96%87%E5%8C%96%E8%A7%84%E8%8C%83"><span class="nav-number">2.</span> <span class="nav-text">了解现有的组织和文化规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">数据管理组织的结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%95%A3%E8%BF%90%E8%90%A5%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">分散运营模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E8%BF%90%E8%90%A5%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.2.</span> <span class="nav-text">网络运营模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E4%B8%AD%E8%BF%90%E8%90%A5%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.3.</span> <span class="nav-text">集中运营模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B7%E5%90%88%E8%BF%90%E8%90%A5%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.4.</span> <span class="nav-text">混合运营模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E7%BB%84%E7%BB%87%E7%9A%84%E6%9C%80%E4%BD%B3%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.5.</span> <span class="nav-text">确定组织的最佳模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DMO%E6%9B%BF%E4%BB%A3%E6%94%BE%E5%95%8A%E5%AE%89%E5%92%8C%E8%AE%BE%E8%AE%A1%E8%80%83%E8%99%91%E5%9B%A0%E7%B4%A0"><span class="nav-number">3.6.</span> <span class="nav-text">DMO替代放啊安和设计考虑因素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E6%88%90%E5%8A%9F%E5%9B%A0%E7%B4%A0"><span class="nav-number">4.</span> <span class="nav-text">关键成功因素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87"><span class="nav-number">5.</span> <span class="nav-text">建立数据管理组织</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%86%E5%88%AB%E5%BD%93%E5%89%8D%E7%9A%84%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%8F%82%E4%B8%8E%E8%80%85"><span class="nav-number">5.1.</span> <span class="nav-text">识别当前的数据管理参与者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%86%E5%88%AB%E5%A7%94%E5%91%98%E4%BC%9A%E7%9A%84%E5%8F%82%E4%B8%8E%E8%80%85"><span class="nav-number">5.2.</span> <span class="nav-text">识别委员会的参与者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%86%E5%88%AB%E5%92%8C%E5%88%86%E6%9E%90%E5%88%A9%E7%9B%8A%E7%9B%B8%E5%85%B3%E6%96%B9"><span class="nav-number">5.3.</span> <span class="nav-text">识别和分析利益相关方</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A9%E5%88%A9%E7%9B%8A%E7%9B%B8%E5%85%B3%E6%96%B9%E5%8F%82%E4%B8%8E%E8%BF%9B%E6%9D%A5"><span class="nav-number">5.4.</span> <span class="nav-text">让利益相关方参与进来</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E7%BB%84%E7%BB%87%E4%B8%8E%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3%E6%9C%BA%E6%9E%84%E9%97%B4%E7%9A%84%E6%B2%9F%E9%80%9A"><span class="nav-number">6.</span> <span class="nav-text">数据管理组织与其他数据相关机构间的沟通</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A6%96%E5%B8%AD%E6%95%B0%E6%8D%AE%E5%AE%98"><span class="nav-number">6.1.</span> <span class="nav-text">首席数据官</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86"><span class="nav-number">6.2.</span> <span class="nav-text">数据治理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%B4%A8%E9%87%8F"><span class="nav-number">6.3.</span> <span class="nav-text">数据质量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84"><span class="nav-number">6.4.</span> <span class="nav-text">企业架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E5%85%A8%E7%90%83%E5%8C%96%E7%BB%84%E7%BB%87"><span class="nav-number">6.5.</span> <span class="nav-text">管理全球化组织</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2"><span class="nav-number">7.</span> <span class="nav-text">数据管理角色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E7%BB%87%E8%A7%92%E8%89%B2"><span class="nav-number">7.1.</span> <span class="nav-text">组织角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E8%A7%92%E8%89%B2"><span class="nav-number">7.2.</span> <span class="nav-text">个人角色</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">kurl</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kurl</span>
+</div><div>
+<!--添加网站运行时间-->
+<span>小破站已经在风雨中度过了</span>
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    function createtime() {
+        const startTime = '09/27/2018 00:12:55',
+            start = new Date(startTime)
+        let mill = new Date() - start,
+            seconds = Math.floor(mill / 1000),
+            mins = Math.floor(seconds / 60),
+            hours = Math.floor(mins / 60),
+            days = Math.floor(hours / 24)
+        const time = {
+            seconds: seconds - mins * 60,
+            mins: mins - hours * 60,
+            hours: hours - days * 24,
+        }
+        for (const k in time) {
+            time[k] = `${time[k]}`.padStart(2, '0')
+        }
+        document.getElementById("timeDate").innerHTML = ` ${days} 天`
+        document.getElementById("times").innerHTML = ` ${time.hours} 小时 ${time.mins} 分 ${time.seconds} 秒`
+    }
+    setInterval(createtime, 500)
+</script>
+</div>
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  PV<span id="busuanzi_value_site_pv"></span>，UV<span id="busuanzi_value_site_uv"></span>
+</span>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
