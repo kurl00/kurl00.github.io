@@ -6,7 +6,7 @@
   <link href="http://www.kurl00.xyz/atom.xml" rel="self"/>
   
   <link href="http://www.kurl00.xyz/"/>
-  <updated>2023-01-30T09:09:32.662Z</updated>
+  <updated>2023-01-30T09:28:29.787Z</updated>
   <id>http://www.kurl00.xyz/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DAMA-读后感</title>
+    <link href="http://www.kurl00.xyz/2023/01/31/DAMA-%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
+    <id>http://www.kurl00.xyz/2023/01/31/DAMA-%E8%AF%BB%E5%90%8E%E6%84%9F/</id>
+    <published>2023-01-30T17:11:24.000Z</published>
+    <updated>2023-01-30T09:28:29.787Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;断断续续，从3月份配置好工具后，读的这本书。 &lt;/p&gt;
+&lt;p&gt;基本上花了一年的时间，中间有太多的耽搁，也都是些借口，终究还是不够勤勉。&lt;/p&gt;
+&lt;p&gt;为什么选这本？ </summary>
+        
+      
+    
+    
+    
+    
+    <category term="DAMA" scheme="http://www.kurl00.xyz/tags/DAMA/"/>
+    
+    <category term="数据管理" scheme="http://www.kurl00.xyz/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="读书记录" scheme="http://www.kurl00.xyz/tags/%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="读后感" scheme="http://www.kurl00.xyz/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>DAMA（十七）数据管理和组织变革管理</title>
@@ -383,34 +414,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;数据架构&quot;&gt;&lt;a href=&quot;#数据架构&quot; class=&quot;headerlink&quot; title=&quot;数据架构&quot;&gt;&lt;/a&gt;数据架构&lt;/h1&gt;&lt;h2 id=&quot;从以下方面考虑数据架构&quot;&gt;&lt;a href=&quot;#从以下方面考虑数据架构&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="DAMA" scheme="http://www.kurl00.xyz/tags/DAMA/"/>
-    
-    <category term="数据管理" scheme="http://www.kurl00.xyz/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
-    
-    <category term="读书记录" scheme="http://www.kurl00.xyz/tags/%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DAMA（三）</title>
-    <link href="http://www.kurl00.xyz/2022/04/15/DAMA%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>http://www.kurl00.xyz/2022/04/15/DAMA%EF%BC%88%E4%B8%89%EF%BC%89/</id>
-    <published>2022-04-15T15:45:47.000Z</published>
-    <updated>2022-06-16T02:08:28.086Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;数据治理&quot;&gt;&lt;a href=&quot;#数据治理&quot; class=&quot;headerlink&quot; title=&quot;数据治理&quot;&gt;&lt;/a&gt;数据治理&lt;/h1&gt;&lt;p&gt;##3.1 引言&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
         
       
     

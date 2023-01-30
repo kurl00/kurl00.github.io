@@ -157,6 +157,134 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.kurl00.xyz/2022/06/14/DAMA%EF%BC%88%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%92%8C%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="kurl">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kurl00">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/14/DAMA%EF%BC%88%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%92%8C%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">DAMA（六）数据存储和操作</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-06-13 17:57:18 / Modified: 10:21:37" itemprop="dateCreated datePublished" datetime="2022-06-13T17:57:18Z">2022-06-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="数据存储和操作"><a href="#数据存储和操作" class="headerlink" title="数据存储和操作"></a>数据存储和操作</h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>数据存储和操作，包括对存储数据的设计、实施和支持，最大化实现数据资源的价值，贯穿于数据创建&#x2F;获取到处置的整个生命周期</p>
+<p><img src="/2022/06/14/DAMA%EF%BC%88%E5%85%AD%EF%BC%89%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%92%8C%E6%93%8D%E4%BD%9C/%E6%88%AA%E5%B1%8F2022-06-13-17.59.54.png" alt="截屏2022-06-13 17.59.54"></p>
+<p>1.数据库操作支持</p>
+<p>关注于数据生命周期相关的活动，从数据库环境的初始搭建，到数据的获取，备份再到处置数据， 同时还包括需要确保数据库性能状态良好。监控和优化数据库性能，对数据库支持非常重要</p>
+<p>2.数据库技术支持</p>
+<p>包括定义满足组织需要的数据库技术要求，定义数据库技术架构，安装和管理数据库技术，解决和数据库相关的技术问题。</p>
+<h3 id="业务驱动因素"><a href="#业务驱动因素" class="headerlink" title="业务驱动因素"></a>业务驱动因素</h3><h3 id="目标和原则"><a href="#目标和原则" class="headerlink" title="目标和原则"></a>目标和原则</h3><p>目标：</p>
+<ol>
+<li>在整个数据生命周期中管理数据的可用性</li>
+<li>确保数据资产的完整性</li>
+<li>管理数据交易事务的性能。</li>
+</ol>
+<p>原则：</p>
+<ol>
+<li>识别自动化的机会并采取行动</li>
+<li>构建时考虑重用思想</li>
+<li>理解并适当使用最佳实践</li>
+<li>支持数据库的标准需求</li>
+<li>为项目中的dba角色设置期望值</li>
+</ol>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
+<li>数据库术语</li>
+<li>数据生命周期</li>
+<li>管理员</li>
+<li>数据架构类型</li>
+<li>数据处理类型<ol>
+<li>ACID，原子性、一致性、隔离性、持久性</li>
+<li>BASE，基本可用，软状态，最终一致性</li>
+<li>CAP，一致性，可用性，分区容错</li>
+</ol>
+</li>
+<li>数据存储介质</li>
+<li>数据库环境</li>
+<li>数据库组织模型<ol>
+<li>层次型数据库</li>
+<li>关系型数据库<ol>
+<li>多维数据库</li>
+<li>时态数据库</li>
+<li>非关系型数据库</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>专用数据库</li>
+<li>常见数据库过程<ol>
+<li>数据库归档</li>
+<li>容量和增长预测</li>
+<li>变动数据捕获</li>
+<li>数据清除</li>
+<li>数据复制</li>
+<li>韧性与恢复</li>
+<li>数据保留</li>
+<li>数据分片</li>
+</ol>
+</li>
+</ol>
+<h2 id="活动"><a href="#活动" class="headerlink" title="活动"></a>活动</h2><h3 id="管理数据库技术"><a href="#管理数据库技术" class="headerlink" title="管理数据库技术"></a>管理数据库技术</h3><ol>
+<li>理解数据库的技术特征</li>
+<li>评估数据库技术</li>
+<li>管理和监控数据库技术</li>
+</ol>
+<h3 id="管理数据库操作"><a href="#管理数据库操作" class="headerlink" title="管理数据库操作"></a>管理数据库操作</h3><ol>
+<li>理解需求</li>
+<li>规划业务连续性</li>
+<li>创建数据库实例</li>
+<li>管理数据库性能</li>
+<li>管理测试数据集</li>
+<li>管理数据迁移</li>
+</ol>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><h3 id="数据建模工具"><a href="#数据建模工具" class="headerlink" title="数据建模工具"></a>数据建模工具</h3><p>###数据库监控工具</p>
+<h3 id="数据库管理工具"><a href="#数据库管理工具" class="headerlink" title="数据库管理工具"></a>数据库管理工具</h3><h3 id="开发支持工具"><a href="#开发支持工具" class="headerlink" title="开发支持工具"></a>开发支持工具</h3><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="在低阶环境中测试"><a href="#在低阶环境中测试" class="headerlink" title="在低阶环境中测试"></a>在低阶环境中测试</h3><h3 id="物理命名标准"><a href="#物理命名标准" class="headerlink" title="物理命名标准"></a>物理命名标准</h3><h3 id="所有变更操作脚本化"><a href="#所有变更操作脚本化" class="headerlink" title="所有变更操作脚本化"></a>所有变更操作脚本化</h3><h2 id="实施指南"><a href="#实施指南" class="headerlink" title="实施指南"></a>实施指南</h2><h3 id="就绪评估-x2F-风险评估"><a href="#就绪评估-x2F-风险评估" class="headerlink" title="就绪评估&#x2F;风险评估"></a>就绪评估&#x2F;风险评估</h3><h3 id="组织和文化变化"><a href="#组织和文化变化" class="headerlink" title="组织和文化变化"></a>组织和文化变化</h3><h2 id="数据存储和操作治理"><a href="#数据存储和操作治理" class="headerlink" title="数据存储和操作治理"></a>数据存储和操作治理</h2><h3 id="度量指标"><a href="#度量指标" class="headerlink" title="度量指标"></a>度量指标</h3><h3 id="信息资产跟踪"><a href="#信息资产跟踪" class="headerlink" title="信息资产跟踪"></a>信息资产跟踪</h3><h3 id="数据审计与数据有效性"><a href="#数据审计与数据有效性" class="headerlink" title="数据审计与数据有效性"></a>数据审计与数据有效性</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://www.kurl00.xyz/2022/05/17/DAMA%EF%BC%88%E4%BA%94%EF%BC%89-%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%92%8C%E8%AE%BE%E8%AE%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -978,7 +1106,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-19 02:12:19" itemprop="dateModified" datetime="2022-04-19T02:12:19Z">2022-04-19</time>
+                <time title="Modified: 2023-01-30 09:17:58" itemprop="dateModified" datetime="2023-01-30T09:17:58Z">2023-01-30</time>
               </span>
 
           
@@ -1114,80 +1242,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://www.kurl00.xyz/2022/04/08/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="kurl">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="kurl00">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/08/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-04-08 07:47:42" itemprop="dateCreated datePublished" datetime="2022-04-08T07:47:42Z">2022-04-08</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1253,14 +1311,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
