@@ -6,7 +6,7 @@
   <link href="http://www.kurl00.xyz/atom.xml" rel="self"/>
   
   <link href="http://www.kurl00.xyz/"/>
-  <updated>2023-01-30T09:28:29.787Z</updated>
+  <updated>2023-04-17T09:14:28.409Z</updated>
   <id>http://www.kurl00.xyz/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2023年4月比赛季</title>
+    <link href="http://www.kurl00.xyz/2023/04/17/2023%E5%B9%B44%E6%9C%88%E6%AF%94%E8%B5%9B%E5%AD%A3/"/>
+    <id>http://www.kurl00.xyz/2023/04/17/2023%E5%B9%B44%E6%9C%88%E6%AF%94%E8%B5%9B%E5%AD%A3/</id>
+    <published>2023-04-17T10:16:57.000Z</published>
+    <updated>2023-04-17T09:14:28.409Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;简单记录下， 4月的马拉松比赛季&lt;/p&gt;
+&lt;p&gt;2022年12月，新冠中招，状态一直在恢复中，也是担心病毒对身体的影响，没敢太上强度，刚好了点，中招了疥痈，痛苦了接近两周，然后2023年3月，甲流中招</summary>
+        
+      
+    
+    
+    
+    
+    <category term="跑步" scheme="http://www.kurl00.xyz/tags/%E8%B7%91%E6%AD%A5/"/>
+    
+    <category term="感想" scheme="http://www.kurl00.xyz/tags/%E6%84%9F%E6%83%B3/"/>
+    
+  </entry>
   
   <entry>
     <title>DAMA-读后感</title>
@@ -387,33 +413,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;数据建模和设计&quot;&gt;&lt;a href=&quot;#数据建模和设计&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="DAMA" scheme="http://www.kurl00.xyz/tags/DAMA/"/>
-    
-    <category term="数据管理" scheme="http://www.kurl00.xyz/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/"/>
-    
-    <category term="读书记录" scheme="http://www.kurl00.xyz/tags/%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DAMA（四）-数据架构</title>
-    <link href="http://www.kurl00.xyz/2022/04/22/DAMA%EF%BC%88%E5%9B%9B%EF%BC%89-%E6%95%B0%E6%8D%AE%E6%9E%B6%E6%9E%84/"/>
-    <id>http://www.kurl00.xyz/2022/04/22/DAMA%EF%BC%88%E5%9B%9B%EF%BC%89-%E6%95%B0%E6%8D%AE%E6%9E%B6%E6%9E%84/</id>
-    <published>2022-04-22T15:16:51.000Z</published>
-    <updated>2022-06-16T02:08:26.035Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;数据架构&quot;&gt;&lt;a href=&quot;#数据架构&quot; class=&quot;headerlink&quot; title=&quot;数据架构&quot;&gt;&lt;/a&gt;数据架构&lt;/h1&gt;&lt;h2 id=&quot;从以下方面考虑数据架构&quot;&gt;&lt;a href=&quot;#从以下方面考虑数据架构&quot; class=&quot;headerlink&quot;</summary>
         
       
     
